@@ -19,7 +19,7 @@ public class customerManager {
         string? amtS = Console.ReadLine();
 
         try {
-            double amt = Convert.ToDouble(amtS);
+            double amt = Double.Parse(amtS);
 
             if (balance >= amt) {
                 balance -= amt;
@@ -44,14 +44,14 @@ public class customerManager {
         string? amtS = Console.ReadLine();
 
         try {
-            double amt = Convert.ToDouble(amtS);
+            double amt = Double.Parse(amtS);
 
             balance += amt;
             //Run api to update amount
             Console.WriteLine("Cash Successfully Deposited");
             Console.WriteLine("Account #" + accountNumber);
             Console.WriteLine("Date: " + DateTime.Today.ToString("MM/dd/yyyy"));
-            Console.WriteLine("Withdrawn: " + amt);
+            Console.WriteLine("Deposited: " + amt);
             Console.WriteLine("Balance: " + balance);
         } catch {
             Console.WriteLine("Deposit must be a number. Please try again.");
@@ -81,6 +81,5 @@ public class customerManager {
             }
         }
     }
-
 
 }

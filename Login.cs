@@ -10,7 +10,7 @@ public class LoginManager {
         Console.WriteLine("Please Enter Login Name:");
         string? login = Console.ReadLine();
 
-        Console.WriteLine("Login Name: " + login + "\nEnter Pin:");
+        Console.WriteLine("Enter Pin:");
         string? pinS = Console.ReadLine();
 
 
