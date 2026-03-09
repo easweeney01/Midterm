@@ -1,5 +1,9 @@
 namespace AdminManager;
 
+using System.Data;
+using System.Diagnostics.Contracts;
+using dal;
+
 public class adminManager {
     public adminManager() {}
 
@@ -8,7 +12,17 @@ public class adminManager {
     }
 
     public void deleteAccount() {
-        
+        Console.WriteLine("Enter the account number to which you want to delete:");
+        try {
+            int num = Convert.ToInt32(Console.ReadLine());
+
+            DataTable dt = Dal.searchID(num);
+            //string holder = Row["holder"].ToString();
+
+        } catch {
+            Console.WriteLine("An error has occured.");
+        }
+
     }
 
     public void updateAccount() {
@@ -19,7 +33,7 @@ public class adminManager {
         Console.WriteLine("Enter Account Number");
         try
         {
-            int val = Convert.ToInt32(Console.ReadLine());    
+            int val = Convert.ToInt32(Console.ReadLine());   
         } catch
         {
             Console.WriteLine("Must be a number. Please try again");
@@ -45,6 +59,8 @@ public class adminManager {
                 case "2": break;
                 case "3": break;
                 case "4": break;
+                case "6": break;
+                default: Console.WriteLine("Invalid Input, Please Try Again"); break;
             }
         }
     }

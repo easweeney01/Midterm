@@ -4,6 +4,8 @@ using CustomerManager;
 using System.Data;
 using dal;
 using Org.BouncyCastle.Pqc.Crypto.Cmce;
+using System.ComponentModel;
+using AdminManager;
 
 public class Atm {
     
@@ -20,9 +22,8 @@ public class Atm {
         isAdmin = Dal.getAdmin(user);
 
         if (isAdmin) {
-            while (!exit) {
-                
-            }
+            adminManager am = new adminManager();
+            am.menu();
             Console.WriteLine("Thank you for using this ATM. Goodbye!");
         } else {
             customerManager cm = new customerManager(user);

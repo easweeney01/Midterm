@@ -98,6 +98,8 @@ public class customerManager {
                 case "1": withdraw(); break;
                 case "3": deposit(); break;
                 case "4": display(); break;
+                case "5": break;
+                default: Console.WriteLine("Invalid Input, Please Try Again"); break;
             }
         }
     }
