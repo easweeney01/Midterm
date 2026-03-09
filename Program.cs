@@ -2,6 +2,8 @@
 using login;
 using CustomerManager;
 using System.Data;
+using dal;
+using Org.BouncyCastle.Pqc.Crypto.Cmce;
 
 public class Atm {
     
@@ -14,6 +16,8 @@ public class Atm {
         while (user == -1) {
             user = LoginManager.getLogin();            
         }
+        
+        isAdmin = Dal.getAdmin(user);
 
         if (isAdmin) {
             while (!exit) {

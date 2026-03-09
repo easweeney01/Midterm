@@ -9,6 +9,24 @@ using System.Runtime.InteropServices;
 public class Dal {
     private const string connectionString = "server=host.docker.internal;port=3333;uid=root;pwd=a;database=midterm";
 
+    public static double getAccountBalance(int accountNum) {
+        var dt = new DataTable();
+
+        using (var connection = new MySqlConnection(connectionString)) {
+            connection.Open();
+
+            var query = "select balance from AtmAccounts where accountNum = @accountNum;";
+
+            var cmd = new MySqlCommand(query,connection);
+            using (cmd) {
+                cmd.Parameters.AddWithValue("@accountNum",accountNum);
+        
+                var res = cmd.ExecuteScalar();
+
+                return Convert.ToDouble(res);
+            }
+        }     
+    }
 
     public static int updateAccountBalance(int accountNum, double balance) {
         using (var connection = new MySqlConnection(connectionString)) {
@@ -91,7 +109,7 @@ public class Dal {
         using (var connection = new MySqlConnection(connectionString)) {
             connection.Open();
 
-            var query = "@select * from AtmAccounts where accountNum = @accountNum;";
+            var query = "select * from AtmAccounts where accountNum = @accountNum;";
 
             var cmd = new MySqlCommand(query,connection);
             using (cmd) {
@@ -106,5 +124,47 @@ public class Dal {
         }
 
         return dt;
+    }
+
+    public static int login(string login, int pin) {
+        var dt = new DataTable();
+
+        using (var connection = new MySqlConnection(connectionString)) {
+            connection.Open();
+
+            var query = "select accountNum from AtmAccounts where login = @login and pin = @pin;";
+
+            var cmd = new MySqlCommand(query,connection);
+            using (cmd) {
+                cmd.Parameters.AddWithValue("@login",login);
+                cmd.Parameters.AddWithValue("@pin",pin);
+        
+                var res = cmd.ExecuteScalar();
+
+                if (res == null || res == DBNull.Value) {return -1;} else 
+                { return Convert.ToInt32(res);};         
+            }
+        }
+    }
+
+    public static bool getAdmin(int accNum) {
+        var dt = new DataTable();
+
+        using (var connection = new MySqlConnection(connectionString)) {
+            connection.Open();
+
+            var query = "select isAdmin from AtmAccounts where accountNum = @accountNum;";
+
+            var cmd = new MySqlCommand(query,connection);
+            using (cmd) {
+                cmd.Parameters.AddWithValue("@accountNum",accNum);
+        
+                var res = cmd.ExecuteScalar();
+                
+                if (res == null || res == DBNull.Value) {return false;} else 
+                { return Convert.ToInt32(res) == 1;};         
+            }
+
+        }
     }
 }

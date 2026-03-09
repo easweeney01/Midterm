@@ -1,4 +1,6 @@
+using System.Data;
 using System.Diagnostics.Contracts;
+using dal;
 namespace CustomerManager;
 public class customerManager {
    
@@ -9,20 +11,38 @@ public class customerManager {
     double balance {get; set;} = 0.0;
     string status {get; set;} = "Active";
 
-    public customerManager(int amt) {
+    public customerManager(int user) {
         //Use dal to get other info
+        getInfo(user);
 
     }
     
+    public void getInfo(int user) {
+        DataTable dt = Dal.searchID(user);
+
+        foreach (DataRow row in dt.Rows) {
+            login = row["login"].ToString();
+            holder = row["holder"].ToString();
+            status = Convert.ToBoolean(row["isActive"]) ? "Active" : "Disabled";
+            pin = Convert.ToInt32(row["pin"]);
+            balance = Convert.ToDouble(row["balance"]);
+            accountNumber = user;
+
+            login = (login != null) ? login : "";
+            holder = (holder != null) ? holder : "";
+        }        
+    }
+
     public void withdraw() {
         Console.WriteLine("Enter the withdraw amount");
         string? amtS = Console.ReadLine();
 
         try {
             double amt = Double.Parse(amtS);
-
+            
             if (balance >= amt) {
-                balance -= amt;
+                Dal.updateAccountBalance(accountNumber,balance-amt);
+                balance = Dal.getAccountBalance(accountNumber);
                 //Run api to update amount
                 Console.WriteLine("Cash Successfully Withdrawn");
                 Console.WriteLine("Account #" + accountNumber);
@@ -45,8 +65,8 @@ public class customerManager {
 
         try {
             double amt = Double.Parse(amtS);
-
-            balance += amt;
+            Dal.updateAccountBalance(accountNumber,balance+amt);
+            balance = Dal.getAccountBalance(accountNumber);
             //Run api to update amount
             Console.WriteLine("Cash Successfully Deposited");
             Console.WriteLine("Account #" + accountNumber);
