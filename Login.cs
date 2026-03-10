@@ -7,7 +7,6 @@ using dal;
 public class LoginManager {
 
     public static int getLogin() {
-
         Console.WriteLine("Please Enter Login Name:");
         string? login = Console.ReadLine();
 
@@ -20,11 +19,11 @@ public class LoginManager {
             if (login != null) {
                 int ret = Dal.login(login,pin); 
                 if (ret == -1) {
-                    Console.WriteLine("Sorry, please try again."); return -1;
+                    Console.Clear(); Console.WriteLine("Sorry, please try again."); return -1;
                 } else {return ret;}
             }
         } catch {
-            Console.WriteLine("Sorry, PINs are numbers-only. Please try again.");
+            Console.Clear(); Console.WriteLine("Sorry, PINs are numbers-only. Please try again.");
         }
 
         

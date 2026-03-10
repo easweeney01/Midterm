@@ -14,13 +14,16 @@ public class Atm {
         int user = -1;
         bool isAdmin = false;
         bool exit = false;
-
+        
+        Console.Clear();
         while (user == -1) {
             user = LoginManager.getLogin();            
         }
         
         isAdmin = Dal.getAdmin(user);
 
+        Console.Clear();
+        
         if (isAdmin) {
             adminManager am = new adminManager();
             am.menu();
