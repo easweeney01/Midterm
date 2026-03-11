@@ -51,7 +51,7 @@ public class adminManager {
                 return;
             }
 
-            string s = dt.Rows[0]["holder"].ToString();
+            string? s = dt.Rows[0]["holder"].ToString();
             if (s == null) {s = "";}
 
             Console.Write("You are about to delete the account of " + s + ".\nRepeat the account number to proceed.");
@@ -98,8 +98,8 @@ public class adminManager {
             Console.WriteLine("The account information is:");
 
             foreach (DataRow row in dt.Rows) {
-                string login = row["login"].ToString();
-                string holder = row["holder"].ToString();
+                string? login = row["login"].ToString();
+                string? holder = row["holder"].ToString();
                 string status = Convert.ToBoolean(row["isActive"]) ? "Active" : "Disabled";
                 int pin = Convert.ToInt32(row["pin"]);
                 double balance = Convert.ToDouble(row["balance"]);
