@@ -13,7 +13,6 @@ public class Atm {
     public static void Main(string[] args) {
         int user = -1;
         bool isAdmin = false;
-        bool exit = false;
         
         Console.Clear();
         while (user == -1) {
@@ -26,11 +25,28 @@ public class Atm {
         
         if (isAdmin) {
             adminManager am = new adminManager();
-            am.menu();
+            try {
+                am.menu();                
+            } catch (Exception ex) {
+                Console.WriteLine("Sorry, an error occurred.");
+                Console.WriteLine(ex.Message + "\n");
+                
+                am.menu();
+            }
+
             Console.WriteLine("Thank you for using this ATM. Goodbye!");
         } else {
             customerManager cm = new customerManager(user);
-            cm.menu();
+            
+            try {
+                cm.menu();    
+            } catch (Exception ex) {
+                Console.WriteLine("Sorry, an error occurred.");
+                Console.WriteLine(ex.Message + "\n");
+
+                cm.menu();  
+            }
+            
             Console.WriteLine("Thank you for using this ATM. Goodbye!");
         }
 

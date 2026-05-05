@@ -126,7 +126,7 @@ public class Dal {
         return dt;
     }
 
-    public static int login(string login, int pin) {
+    public static int? login(string login, int pin) {
         var dt = new DataTable();
 
         using (var connection = new MySqlConnection(connectionString)) {
@@ -141,8 +141,7 @@ public class Dal {
         
                 var res = cmd.ExecuteScalar();
 
-                if (res == null || res == DBNull.Value) {return -1;} else 
-                { return Convert.ToInt32(res);};         
+                return (res == null || res == DBNull.Value) ? -1 : Convert.ToInt32(res);       
             }
         }
     }

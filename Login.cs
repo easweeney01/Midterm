@@ -17,14 +17,15 @@ public class LoginManager {
             int pin = Convert.ToInt32(pinS);
 
             if (login != null) {
-                int ret = Dal.login(login,pin); 
-                if (ret == -1) {
+                int? ret = Dal.login(login,pin); 
+                if (ret == null) {
                     Console.Clear(); Console.WriteLine("Sorry, please try again."); return -1;
-                } else {return ret;}
+                } 
+
+                return ret.Value;
             }
-        } catch (Exception ex) {
+        } catch (FormatException) {
             Console.Clear(); Console.WriteLine("Sorry, PINs are numbers-only. Please try again.");
-            Console.WriteLine(ex.Message);
         }
 
         

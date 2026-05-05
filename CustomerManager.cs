@@ -37,46 +37,44 @@ public class customerManager {
         Console.WriteLine("Enter the withdraw amount");
         string? amtS = Console.ReadLine();
 
-        try {
-            double amt = Double.Parse(amtS);
-            
-            if (balance >= amt) {
-                Dal.updateAccountBalance(accountNumber,balance-amt);
-                balance = Dal.getAccountBalance(accountNumber);
-                //Run api to update amount
-                Console.WriteLine("Cash Successfully Withdrawn");
-                Console.WriteLine("Account #" + accountNumber);
-                Console.WriteLine("Date: " + DateTime.Today.ToString("MM/dd/yyyy"));
-                Console.WriteLine("Withdrawn: " + amt);
-                Console.WriteLine("Balance: " + balance);
-            } else {
-                Console.WriteLine("Insufficient Funds. Please Try Again.");
-                withdraw();
-            }
-        } catch {
-            Console.WriteLine("Withdrawal must be a number. Please try again.");
-            withdraw();
+        if (!Double.TryParse(amtS, out double amt)) {
+            throw new FormatException("Withdrawal must be a number. Please try again.");
         }
+
+        if (balance < amt) {
+            Console.WriteLine("Insufficient Funds. Please Try Again.");
+            withdraw();
+            return;
+        }
+        
+        Dal.updateAccountBalance(accountNumber,balance-amt);    
+        balance = Dal.getAccountBalance(accountNumber);
+    
+        //Run api to update amount
+        Console.WriteLine("Cash Successfully Withdrawn");
+        Console.WriteLine("Account #" + accountNumber);
+        Console.WriteLine("Date: " + DateTime.Today.ToString("MM/dd/yyyy"));
+        Console.WriteLine("Withdrawn: " + amt);
+        Console.WriteLine("Balance: " + balance);        
     }
 
     public void deposit() {
         Console.WriteLine("Enter the cash amount to deposit:");
         string? amtS = Console.ReadLine();
 
-        try {
-            double amt = Double.Parse(amtS);
-            Dal.updateAccountBalance(accountNumber,balance+amt);
-            balance = Dal.getAccountBalance(accountNumber);
-            //Run api to update amount
-            Console.WriteLine("Cash Successfully Deposited");
-            Console.WriteLine("Account #" + accountNumber);
-            Console.WriteLine("Date: " + DateTime.Today.ToString("MM/dd/yyyy"));
-            Console.WriteLine("Deposited: " + amt);
-            Console.WriteLine("Balance: " + balance);
-        } catch {
-            Console.WriteLine("Deposit must be a number. Please try again.");
-            withdraw();
+        if (!Double.TryParse(amtS, out double amt)) {
+            throw new FormatException("Deposit must be a number. Please try again.");
         }
+        
+        Dal.updateAccountBalance(accountNumber,balance+amt);    
+        balance = Dal.getAccountBalance(accountNumber);
+    
+        //Run api to update amount
+        Console.WriteLine("Cash Successfully Deposited");
+        Console.WriteLine("Account #" + accountNumber);
+        Console.WriteLine("Date: " + DateTime.Today.ToString("MM/dd/yyyy"));
+        Console.WriteLine("Withdrawn: " + amt);
+        Console.WriteLine("Balance: " + balance);  
     }
 
     public void display() {
