@@ -22,8 +22,9 @@ public class LoginManager {
                     Console.Clear(); Console.WriteLine("Sorry, please try again."); return -1;
                 } else {return ret;}
             }
-        } catch {
+        } catch (Exception ex) {
             Console.Clear(); Console.WriteLine("Sorry, PINs are numbers-only. Please try again.");
+            Console.WriteLine(ex.Message);
         }
 
         
