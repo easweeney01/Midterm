@@ -7,199 +7,199 @@ using System.Data;
 using System.Runtime.InteropServices;
 
 public class Dal {
-    private const string connectionString = "server=host.docker.internal;port=3333;uid=root;pwd=a;database=midterm";
+	private const string connectionString = "server=host.docker.internal;port=3333;uid=root;pwd=a;database=midterm";
 
-    public static double getAccountBalance(int accountNum) {
-        var dt = new DataTable();
+	public static double getAccountBalance(int accountNum) {
+		var dt = new DataTable();
 
-        using (var connection = new MySqlConnection(connectionString)) {
-            connection.Open();
+		using (var connection = new MySqlConnection(connectionString)) {
+			connection.Open();
 
-            var query = "select balance from AtmAccounts where accountNum = @accountNum;";
+			var query = "select balance from AtmAccounts where accountNum = @accountNum;";
 
-            var cmd = new MySqlCommand(query,connection);
-            using (cmd) {
-                cmd.Parameters.AddWithValue("@accountNum",accountNum);
-        
-                var res = cmd.ExecuteScalar();
+			var cmd = new MySqlCommand(query, connection);
+			using (cmd) {
+				cmd.Parameters.AddWithValue("@accountNum", accountNum);
 
-                return Convert.ToDouble(res);
-            }
-        }     
-    }
+				var res = cmd.ExecuteScalar();
 
-    public static int updateAccountBalance(int accountNum, double balance) {
-        using (var connection = new MySqlConnection(connectionString)) {
-            connection.Open();
+				return Convert.ToDouble(res);
+			}
+		}
+	}
 
-            var update = @"UPDATE AtmAccounts SET balance = @balance WHERE accountNum = @accountNum";
+	public static int updateAccountBalance(int accountNum, double balance) {
+		using (var connection = new MySqlConnection(connectionString)) {
+			connection.Open();
 
-            var cmd = new MySqlCommand(update,connection);
-            using (cmd) {
-                cmd.Parameters.AddWithValue("@accountNum",accountNum);
-                cmd.Parameters.AddWithValue("@balance",balance);
+			var update = @"UPDATE AtmAccounts SET balance = @balance WHERE accountNum = @accountNum";
 
-                return cmd.ExecuteNonQuery();            
-            }
-            
-        }
-    }
+			var cmd = new MySqlCommand(update, connection);
+			using (cmd) {
+				cmd.Parameters.AddWithValue("@accountNum", accountNum);
+				cmd.Parameters.AddWithValue("@balance", balance);
 
-    public static int createAccount(string holder,string login, int pin,double balance, bool isActive) {
-        var dt = new DataTable();
-        using (var connection = new MySqlConnection(connectionString)) {
-            connection.Open();
+				return cmd.ExecuteNonQuery();
+			}
 
-            var insert = @"insert into AtmAccounts (holder, login, pin, balance, isActive) values (@holder,@login,@pin,@balance,@isActive)";
+		}
+	}
 
-            var cmd = new MySqlCommand(insert,connection);
-            using (cmd) {
-                cmd.Parameters.AddWithValue("@holder",holder);
-                cmd.Parameters.AddWithValue("@login",login);
-                cmd.Parameters.AddWithValue("@pin",pin);
-                cmd.Parameters.AddWithValue("@balance",balance);
-                cmd.Parameters.AddWithValue("@isActive",isActive);
-        
-                cmd.ExecuteNonQuery();            
-            }
-            return (int) cmd.LastInsertedId;
-        }
-    }
+	public static int createAccount(string holder, string login, int pin, double balance, bool isActive) {
+		var dt = new DataTable();
+		using (var connection = new MySqlConnection(connectionString)) {
+			connection.Open();
 
-    public static int deleteAccount(int accountNum) {
-        using (var connection = new MySqlConnection(connectionString)) {
-            connection.Open();
+			var insert = @"insert into AtmAccounts (holder, login, pin, balance, isActive) values (@holder,@login,@pin,@balance,@isActive)";
 
-            var delete = @"delete from AtmAccounts where accountNum = @accountNum limit 1";
+			var cmd = new MySqlCommand(insert, connection);
+			using (cmd) {
+				cmd.Parameters.AddWithValue("@holder", holder);
+				cmd.Parameters.AddWithValue("@login", login);
+				cmd.Parameters.AddWithValue("@pin", pin);
+				cmd.Parameters.AddWithValue("@balance", balance);
+				cmd.Parameters.AddWithValue("@isActive", isActive);
 
-            var cmd = new MySqlCommand(delete,connection);
-            using (cmd) {
-                cmd.Parameters.AddWithValue("@accountNum",accountNum);
-        
-                return cmd.ExecuteNonQuery();
-            }
-        }
-    }
+				cmd.ExecuteNonQuery();
+			}
+			return (int)cmd.LastInsertedId;
+		}
+	}
 
-    //TODO: UpdateAccount
-    public static int updateAccount(int accountNum, string holder, string login, int pin, bool isActive) {
-        using (var connection = new MySqlConnection(connectionString)) {
-            connection.Open();
+	public static int deleteAccount(int accountNum) {
+		using (var connection = new MySqlConnection(connectionString)) {
+			connection.Open();
 
-            var update = @"UPDATE AtmAccounts SET holder = @holder, login = @login, pin = @pin, isActive = @isActive WHERE accountNum = @accountNum";
+			var delete = @"delete from AtmAccounts where accountNum = @accountNum limit 1";
 
-            var cmd = new MySqlCommand(update,connection);
-            using (cmd) {
-                cmd.Parameters.AddWithValue("@accountNum",accountNum);
-                cmd.Parameters.AddWithValue("@holder",holder);
-                cmd.Parameters.AddWithValue("@login",login);
-                cmd.Parameters.AddWithValue("@pin",pin);
-                cmd.Parameters.AddWithValue("@isActive",isActive);
+			var cmd = new MySqlCommand(delete, connection);
+			using (cmd) {
+				cmd.Parameters.AddWithValue("@accountNum", accountNum);
 
-                return cmd.ExecuteNonQuery();            
-            }
-            
-        }
-    }
+				return cmd.ExecuteNonQuery();
+			}
+		}
+	}
 
-    public static DataTable searchID(int accountNum) {
-        var dt = new DataTable();
+	//TODO: UpdateAccount
+	public static int updateAccount(int accountNum, string holder, string login, int pin, bool isActive) {
+		using (var connection = new MySqlConnection(connectionString)) {
+			connection.Open();
 
-        using (var connection = new MySqlConnection(connectionString)) {
-            connection.Open();
+			var update = @"UPDATE AtmAccounts SET holder = @holder, login = @login, pin = @pin, isActive = @isActive WHERE accountNum = @accountNum";
 
-            var query = "select * from AtmAccounts where accountNum = @accountNum;";
+			var cmd = new MySqlCommand(update, connection);
+			using (cmd) {
+				cmd.Parameters.AddWithValue("@accountNum", accountNum);
+				cmd.Parameters.AddWithValue("@holder", holder);
+				cmd.Parameters.AddWithValue("@login", login);
+				cmd.Parameters.AddWithValue("@pin", pin);
+				cmd.Parameters.AddWithValue("@isActive", isActive);
 
-            var cmd = new MySqlCommand(query,connection);
-            using (cmd) {
-                cmd.Parameters.AddWithValue("@accountNum",accountNum);
-        
-                using (var da = new MySqlDataAdapter(cmd)) {
-                    da.Fill(dt);
-                }                
-            }
+				return cmd.ExecuteNonQuery();
+			}
 
-        }
+		}
+	}
 
-        return dt;
-    }
+	public static DataTable searchID(int accountNum) {
+		var dt = new DataTable();
 
-    public static int? login(string login, int pin) {
-        var dt = new DataTable();
+		using (var connection = new MySqlConnection(connectionString)) {
+			connection.Open();
 
-        using (var connection = new MySqlConnection(connectionString)) {
-            connection.Open();
+			var query = "select * from AtmAccounts where accountNum = @accountNum;";
 
-            var query = "select accountNum from AtmAccounts where login = @login and pin = @pin;";
+			var cmd = new MySqlCommand(query, connection);
+			using (cmd) {
+				cmd.Parameters.AddWithValue("@accountNum", accountNum);
 
-            var cmd = new MySqlCommand(query,connection);
-            using (cmd) {
-                cmd.Parameters.AddWithValue("@login",login);
-                cmd.Parameters.AddWithValue("@pin",pin);
-        
-                var res = cmd.ExecuteScalar();
+				using (var da = new MySqlDataAdapter(cmd)) {
+					da.Fill(dt);
+				}
+			}
 
-                return (res == null || res == DBNull.Value) ? -1 : Convert.ToInt32(res);       
-            }
-        }
-    }
+		}
 
-    public static bool getAdmin(int accNum) {
-        var dt = new DataTable();
+		return dt;
+	}
 
-        using (var connection = new MySqlConnection(connectionString)) {
-            connection.Open();
+	public static int? login(string login, int pin) {
+		var dt = new DataTable();
 
-            var query = "select isAdmin from AtmAccounts where accountNum = @accountNum;";
+		using (var connection = new MySqlConnection(connectionString)) {
+			connection.Open();
 
-            var cmd = new MySqlCommand(query,connection);
-            using (cmd) {
-                cmd.Parameters.AddWithValue("@accountNum",accNum);
-        
-                var res = cmd.ExecuteScalar();
-                
-                if (res == null || res == DBNull.Value) {return false;} else 
-                { return Convert.ToInt32(res) == 1;};         
-            }
+			var query = "select accountNum from AtmAccounts where login = @login and pin = @pin;";
 
-        }
-    }
+			var cmd = new MySqlCommand(query, connection);
+			using (cmd) {
+				cmd.Parameters.AddWithValue("@login", login);
+				cmd.Parameters.AddWithValue("@pin", pin);
+
+				var res = cmd.ExecuteScalar();
+
+				return (res == null || res == DBNull.Value) ? -1 : Convert.ToInt32(res);
+			}
+		}
+	}
+
+	public static bool getAdmin(int accNum) {
+		var dt = new DataTable();
+
+		using (var connection = new MySqlConnection(connectionString)) {
+			connection.Open();
+
+			var query = "select isAdmin from AtmAccounts where accountNum = @accountNum;";
+
+			var cmd = new MySqlCommand(query, connection);
+			using (cmd) {
+				cmd.Parameters.AddWithValue("@accountNum", accNum);
+
+				var res = cmd.ExecuteScalar();
+
+				if (res == null || res == DBNull.Value) { return false; }
+				else { return Convert.ToInt32(res) == 1; }
+				;
+			}
+
+		}
+	}
 }
 
-public interface IDal
-{
-    double getAccountBalance(int accountNum);
-    int updateAccountBalance(int accountNum, double balance);
-    int createAccount(string holder, string login, int pin, double balance, bool isActive);
-    int deleteAccount(int accountNum);
-    int updateAccount(int accountNum, string holder, string login, int pin, bool isActive);
-    DataTable searchID(int accountNum);
-    int? login(string login, int pin);
-    bool getAdmin(int accNum);
+public interface IDal {
+	double getAccountBalance(int accountNum);
+	int updateAccountBalance(int accountNum, double balance);
+	int createAccount(string holder, string login, int pin, double balance, bool isActive);
+	int deleteAccount(int accountNum);
+	int updateAccount(int accountNum, string holder, string login, int pin, bool isActive);
+	DataTable searchID(int accountNum);
+	int? login(string login, int pin);
+	bool getAdmin(int accNum);
 }
 
 public class DalWrapper : IDal {
-    public double getAccountBalance(int accountNum) =>
-        Dal.getAccountBalance(accountNum);
- 
-    public int updateAccountBalance(int accountNum, double balance) =>
-        Dal.updateAccountBalance(accountNum, balance);
- 
-    public int createAccount(string holder, string login, int pin, double balance, bool isActive) =>
-        Dal.createAccount(holder, login, pin, balance, isActive);
- 
-    public int deleteAccount(int accountNum) =>
-        Dal.deleteAccount(accountNum);
- 
-    public int updateAccount(int accountNum, string holder, string login, int pin, bool isActive) =>
-        Dal.updateAccount(accountNum, holder, login, pin, isActive);
- 
-    public DataTable searchID(int accountNum) =>
-        Dal.searchID(accountNum);
- 
-    public int? login(string login, int pin) =>
-        Dal.login(login, pin);
- 
-    public bool getAdmin(int accNum) =>
-        Dal.getAdmin(accNum);
+	public double getAccountBalance(int accountNum) =>
+		Dal.getAccountBalance(accountNum);
+
+	public int updateAccountBalance(int accountNum, double balance) =>
+		Dal.updateAccountBalance(accountNum, balance);
+
+	public int createAccount(string holder, string login, int pin, double balance, bool isActive) =>
+		Dal.createAccount(holder, login, pin, balance, isActive);
+
+	public int deleteAccount(int accountNum) =>
+		Dal.deleteAccount(accountNum);
+
+	public int updateAccount(int accountNum, string holder, string login, int pin, bool isActive) =>
+		Dal.updateAccount(accountNum, holder, login, pin, isActive);
+
+	public DataTable searchID(int accountNum) =>
+		Dal.searchID(accountNum);
+
+	public int? login(string login, int pin) =>
+		Dal.login(login, pin);
+
+	public bool getAdmin(int accNum) =>
+		Dal.getAdmin(accNum);
 }
