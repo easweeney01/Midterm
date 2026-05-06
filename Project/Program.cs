@@ -24,7 +24,7 @@ public class Atm {
         Console.Clear();
         
         if (isAdmin) {
-            adminManager am = new adminManager();
+            adminManager am = new adminManager(new DalWrapper());
             try {
                 am.menu();                
             } catch (Exception ex) {
@@ -36,7 +36,7 @@ public class Atm {
 
             Console.WriteLine("Thank you for using this ATM. Goodbye!");
         } else {
-            customerManager cm = new customerManager(user);
+            customerManager cm = new customerManager(user, new DalWrapper());
             
             try {
                 cm.menu();    

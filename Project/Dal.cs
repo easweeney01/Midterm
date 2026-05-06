@@ -120,7 +120,6 @@ public class Dal {
                 }                
             }
 
-
         }
 
         return dt;
@@ -166,4 +165,42 @@ public class Dal {
 
         }
     }
+}
+
+public interface IDal
+{
+    double getAccountBalance(int accountNum);
+    int updateAccountBalance(int accountNum, double balance);
+    int createAccount(string holder, string login, int pin, double balance, bool isActive);
+    int deleteAccount(int accountNum);
+    int updateAccount(int accountNum, string holder, string login, int pin, bool isActive);
+    DataTable searchID(int accountNum);
+    int? login(string login, int pin);
+    bool getAdmin(int accNum);
+}
+
+public class DalWrapper : IDal {
+    public double getAccountBalance(int accountNum) =>
+        Dal.getAccountBalance(accountNum);
+ 
+    public int updateAccountBalance(int accountNum, double balance) =>
+        Dal.updateAccountBalance(accountNum, balance);
+ 
+    public int createAccount(string holder, string login, int pin, double balance, bool isActive) =>
+        Dal.createAccount(holder, login, pin, balance, isActive);
+ 
+    public int deleteAccount(int accountNum) =>
+        Dal.deleteAccount(accountNum);
+ 
+    public int updateAccount(int accountNum, string holder, string login, int pin, bool isActive) =>
+        Dal.updateAccount(accountNum, holder, login, pin, isActive);
+ 
+    public DataTable searchID(int accountNum) =>
+        Dal.searchID(accountNum);
+ 
+    public int? login(string login, int pin) =>
+        Dal.login(login, pin);
+ 
+    public bool getAdmin(int accNum) =>
+        Dal.getAdmin(accNum);
 }

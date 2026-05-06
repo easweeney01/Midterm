@@ -3,7 +3,8 @@ using System.Diagnostics.Contracts;
 using dal;
 namespace CustomerManager;
 public class customerManager {
-   
+    private readonly IDal _dal;
+
     string login {get; set;} = "";
     string holder {get; set;} = "";
     int accountNumber {get; set;} = 0;
@@ -11,14 +12,16 @@ public class customerManager {
     double balance {get; set;} = 0.0;
     string status {get; set;} = "Active";
 
-    public customerManager(int user) {
-        //Use dal to get other info
-        getInfo(user);
+    
 
+    public customerManager(int user, IDal dal) {
+        //Use dal to get other info
+        _dal = dal;
+        getInfo(user);
     }
     
     public void getInfo(int user) {
-        DataTable dt = Dal.searchID(user);
+        DataTable dt = _dal.searchID(user);
 
         foreach (DataRow row in dt.Rows) {
             login = row["login"].ToString();
@@ -33,48 +36,66 @@ public class customerManager {
         }        
     }
 
-    public void withdraw() {
-        Console.WriteLine("Enter the withdraw amount");
-        string? amtS = Console.ReadLine();
+    public void withdrawWrap() {
+        bool success = false;
 
+        while (!success) {
+            Console.WriteLine("Enter the withdraw amount");
+            string? amtS = Console.ReadLine();
+
+            success = withdraw(amtS);
+        } 
+    }
+
+    public bool withdraw(string amtS) {
         if (!Double.TryParse(amtS, out double amt)) {
             throw new FormatException("Withdrawal must be a number. Please try again.");
         }
 
         if (balance < amt) {
             Console.WriteLine("Insufficient Funds. Please Try Again.");
-            withdraw();
-            return;
+            return false;
         }
         
-        Dal.updateAccountBalance(accountNumber,balance-amt);    
-        balance = Dal.getAccountBalance(accountNumber);
+        _dal.updateAccountBalance(accountNumber,balance-amt);    
+        balance = _dal.getAccountBalance(accountNumber);
     
         //Run api to update amount
         Console.WriteLine("Cash Successfully Withdrawn");
         Console.WriteLine("Account #" + accountNumber);
         Console.WriteLine("Date: " + DateTime.Today.ToString("MM/dd/yyyy"));
         Console.WriteLine("Withdrawn: " + amt);
-        Console.WriteLine("Balance: " + balance);        
+        Console.WriteLine("Balance: " + balance);
+        return true;
     }
 
-    public void deposit() {
-        Console.WriteLine("Enter the cash amount to deposit:");
-        string? amtS = Console.ReadLine();
+    public void depositWrap() {
+        bool success = false;
 
+        while (!success) {
+            Console.WriteLine("Enter the cash amount to deposit:");
+            string? amtS = Console.ReadLine();
+
+            success = deposit(amtS);
+        } 
+    }
+
+    public bool deposit(string amtS) {
         if (!Double.TryParse(amtS, out double amt)) {
             throw new FormatException("Deposit must be a number. Please try again.");
         }
         
-        Dal.updateAccountBalance(accountNumber,balance+amt);    
-        balance = Dal.getAccountBalance(accountNumber);
+        _dal.updateAccountBalance(accountNumber,balance+amt);    
+        balance = _dal.getAccountBalance(accountNumber);
     
         //Run api to update amount
         Console.WriteLine("Cash Successfully Deposited");
         Console.WriteLine("Account #" + accountNumber);
         Console.WriteLine("Date: " + DateTime.Today.ToString("MM/dd/yyyy"));
-        Console.WriteLine("Withdrawn: " + amt);
+        Console.WriteLine("Deposited: " + amt);
         Console.WriteLine("Balance: " + balance);  
+
+        return true;
     }
 
     public void display() {
@@ -93,8 +114,8 @@ public class customerManager {
             val = Console.ReadLine();
 
             switch (val) {
-                case "1": withdraw(); break;
-                case "3": deposit(); break;
+                case "1": withdrawWrap(); break;
+                case "3": depositWrap(); break;
                 case "4": display(); break;
                 case "5": break;
                 default: Console.WriteLine("Invalid Input, Please Try Again"); break;

@@ -5,7 +5,15 @@ using System.Diagnostics.Contracts;
 using dal;
 
 public class adminManager {
-    public adminManager() {}
+    private readonly IDal _dal;
+
+    public adminManager() {
+        _dal = new DalWrapper();
+    }
+    
+    public adminManager(IDal dal) {
+        _dal = dal;
+    }
 
     public void createNewAccount() {
         Console.Clear();
@@ -30,7 +38,7 @@ public class adminManager {
                 a = a.ToLower();    
             }      
 
-            int id = Dal.createAccount(h,l,p,b,a == "y");
+            int id = _dal.createAccount(h,l,p,b,a == "y");
             Console.WriteLine("Account " + id + " Successfully Created.");   
         } catch {
             Console.WriteLine("Account Creation Failed."); 
@@ -44,7 +52,7 @@ public class adminManager {
         try {
             int num = Convert.ToInt32(Console.ReadLine());
 
-            DataTable dt = Dal.searchID(num);
+            DataTable dt = _dal.searchID(num);
 
             if (dt.Rows.Count == 0) {
                 Console.WriteLine("Account Not Found");
@@ -58,7 +66,7 @@ public class adminManager {
             int num2 = Convert.ToInt32(Console.ReadLine());
 
             if (num == num2) {
-                int del = Dal.deleteAccount(num);
+                int del = _dal.deleteAccount(num);
                 Console.WriteLine("Account Deleted Successfully.");
             } else {
                 Console.WriteLine("No match.");
@@ -81,7 +89,7 @@ public class adminManager {
         while (!done) {
             Console.Clear();
             try {
-                DataTable dt = Dal.searchID(id);
+                DataTable dt = _dal.searchID(id);
                 string? h = dt.Rows[0]["holder"].ToString();
                 double? b = Convert.ToDouble(dt.Rows[0]["balance"]);
                 string? l = dt.Rows[0]["login"].ToString();
@@ -130,7 +138,7 @@ public class adminManager {
         try
         {
             int val = Convert.ToInt32(Console.ReadLine());  
-            DataTable dt = Dal.searchID(val);
+            DataTable dt = _dal.searchID(val);
 
             if (dt.Rows.Count == 0) {
                 Console.WriteLine("No matching account found.\n");
@@ -178,7 +186,7 @@ public class adminManager {
             Console.WriteLine("Invalid input, please try again."); return false;
         }
 
-        Dal.updateAccount(id,newHolder,login,pin,status);
+        _dal.updateAccount(id,newHolder,login,pin,status);
         return true;
     }
 
@@ -188,7 +196,7 @@ public class adminManager {
             Console.WriteLine("Invalid input, please try again."); return false;
         }
 
-        Dal.updateAccount(id,holder,newLogin,pin,status);
+        _dal.updateAccount(id,holder,newLogin,pin,status);
         return true;
     }
 
@@ -198,7 +206,7 @@ public class adminManager {
 
         if (pin < 0 || pin > 99999) {Console.WriteLine("Invalid PIN."); return false;}
 
-        Dal.updateAccount(id,holder,login,newPin,status);
+        _dal.updateAccount(id,holder,login,newPin,status);
         return true;
     }
     
@@ -214,7 +222,7 @@ public class adminManager {
             Console.WriteLine("Invalid input, please try again."); return false;
         }
 
-        Dal.updateAccount(id,holder,login,pin,(newStatus == "y"));
+        _dal.updateAccount(id,holder,login,pin,(newStatus == "y"));
         return true;
     }
 
