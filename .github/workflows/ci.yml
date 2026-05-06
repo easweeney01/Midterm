@@ -22,10 +22,10 @@ jobs:
         run: dotnet restore Project/Midterm.sln 
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build Project/Midterm.sln --no-restore
 
       - name: Test with coverage
-        run: dotnet test --no-build --collect:"XPlat Code Coverage"
+        run: dotnet test Project/Midterm.sln --no-build --collect:"XPlat Code Coverage"
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
