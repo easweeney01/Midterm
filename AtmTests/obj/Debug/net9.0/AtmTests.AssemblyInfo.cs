@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AtmTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f35fd7d118494c132a3d9935e6240e61cf0c1890")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2aa17b25b43519137344abbb7f03ecdf27990a34")]
 [assembly: System.Reflection.AssemblyProductAttribute("AtmTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AtmTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
