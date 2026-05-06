@@ -78,7 +78,6 @@ public class Dal {
         
                 return cmd.ExecuteNonQuery();
             }
-
         }
     }
 
