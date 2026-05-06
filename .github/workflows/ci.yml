@@ -19,7 +19,7 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore Midterm.sln
+        run: dotnet restore Project/Midterm.sln 
 
       - name: Build
         run: dotnet build --no-restore
