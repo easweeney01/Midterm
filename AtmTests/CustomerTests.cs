@@ -94,7 +94,7 @@ public class CustomerTests
         mockDal.Setup(d => d.searchID(accNum)).Returns(dt);
 
         var cm = new customerManager(accNum, mockDal.Object);
-        
+
         Assert.False(cm.withdraw("200"));
 
         mockDal.Verify(d => d.updateAccountBalance(It.IsAny<int>(), It.IsAny<double>()), Times.Never);

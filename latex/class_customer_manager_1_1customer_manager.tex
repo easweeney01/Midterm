@@ -1,0 +1,83 @@
+\doxysection{Customer\+Manager.\+customer\+Manager Class Reference}
+\hypertarget{class_customer_manager_1_1customer_manager}{}\label{class_customer_manager_1_1customer_manager}\index{CustomerManager.customerManager@{CustomerManager.customerManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_customer_manager_1_1customer_manager_a570468bd8b1af3e088619c420a05bc6f}\label{class_customer_manager_1_1customer_manager_a570468bd8b1af3e088619c420a05bc6f} 
+{\bfseries customer\+Manager} (int user, \doxymbox{\hyperlink{interfacedal_1_1_i_dal}{IDal}} \doxymbox{\hyperlink{namespacedal}{dal}})
+\item 
+\Hypertarget{class_customer_manager_1_1customer_manager_a3e3d415244945cea07b3e97262e12492}\label{class_customer_manager_1_1customer_manager_a3e3d415244945cea07b3e97262e12492} 
+void {\bfseries get\+Info} (int user)
+\begin{DoxyCompactList}\small\item\em Gets account information for future use. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_manager_1_1customer_manager_a7f6aed4c6db7cf093977ca28e4e6d851}\label{class_customer_manager_1_1customer_manager_a7f6aed4c6db7cf093977ca28e4e6d851} 
+void {\bfseries withdraw\+Wrap} ()
+\begin{DoxyCompactList}\small\item\em Prompts the customer for an amount of money to withdraw and calls withdraw to execute. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_customer_manager_1_1customer_manager_a2c327c269388adc88b671c054a0a1dda}{withdraw}} (string amtS)
+\begin{DoxyCompactList}\small\item\em Withdraws the money into the account using the dal. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_manager_1_1customer_manager_ae6aacd8c03689cd976011ec836c0bd1c}\label{class_customer_manager_1_1customer_manager_ae6aacd8c03689cd976011ec836c0bd1c} 
+void {\bfseries deposit\+Wrap} ()
+\begin{DoxyCompactList}\small\item\em Prompts the customer for an amount of money to deposit and calls deposit to execute. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_customer_manager_1_1customer_manager_a0823cd3e5968206733d7f086f02c5679}{deposit}} (string amtS)
+\begin{DoxyCompactList}\small\item\em Deposits the money into the account using the dal. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_manager_1_1customer_manager_a77dd49c3748d01840b39f90ffb943e86}\label{class_customer_manager_1_1customer_manager_a77dd49c3748d01840b39f90ffb943e86} 
+void {\bfseries display} ()
+\begin{DoxyCompactList}\small\item\em Displays the account number, date, and balance of the account currently signed-\/in. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_manager_1_1customer_manager_afc2423df2a7beb0d7975c9add64559cd}\label{class_customer_manager_1_1customer_manager_afc2423df2a7beb0d7975c9add64559cd} 
+void {\bfseries menu} ()
+\begin{DoxyCompactList}\small\item\em Shows and prompts the UI menu for the customer manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_customer_manager_1_1customer_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_customer_manager_1_1customer_manager_a0823cd3e5968206733d7f086f02c5679}\index{CustomerManager.customerManager@{CustomerManager.customerManager}!deposit@{deposit}}
+\index{deposit@{deposit}!CustomerManager.customerManager@{CustomerManager.customerManager}}
+\doxysubsubsection{\texorpdfstring{deposit()}{deposit()}}
+{\footnotesize\ttfamily \label{class_customer_manager_1_1customer_manager_a0823cd3e5968206733d7f086f02c5679} 
+bool Customer\+Manager.\+customer\+Manager.\+deposit (\begin{DoxyParamCaption}\item[{string}]{amtS}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deposits the money into the account using the dal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amtS} & The amount of money entered as a string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean to denote success.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Format\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_customer_manager_1_1customer_manager_a2c327c269388adc88b671c054a0a1dda}\index{CustomerManager.customerManager@{CustomerManager.customerManager}!withdraw@{withdraw}}
+\index{withdraw@{withdraw}!CustomerManager.customerManager@{CustomerManager.customerManager}}
+\doxysubsubsection{\texorpdfstring{withdraw()}{withdraw()}}
+{\footnotesize\ttfamily \label{class_customer_manager_1_1customer_manager_a2c327c269388adc88b671c054a0a1dda} 
+bool Customer\+Manager.\+customer\+Manager.\+withdraw (\begin{DoxyParamCaption}\item[{string}]{amtS}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Withdraws the money into the account using the dal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amtS} & The amount of money to be removed as a string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean to denote success.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Format\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Project/\+Customer\+Manager.\+cs\end{DoxyCompactItemize}

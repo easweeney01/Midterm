@@ -9,6 +9,11 @@ using System.Runtime.InteropServices;
 public class Dal {
 	private const string connectionString = "server=host.docker.internal;port=3333;uid=root;pwd=a;database=midterm";
 
+	/// <summary>
+	/// Returns account balance from DAL.
+	/// </summary>
+	/// <param name="accountNum"></param>
+	/// <returns>Returns account balance.</returns>
 	public static double getAccountBalance(int accountNum) {
 		var dt = new DataTable();
 
@@ -28,6 +33,12 @@ public class Dal {
 		}
 	}
 
+	/// <summary>
+	/// Updates account balance to DAL.
+	/// </summary>
+	/// <param name="accountNum"></param>
+	/// <param name="balance"></param>
+	/// <returns>1 for success; 0 for failure.</returns>
 	public static int updateAccountBalance(int accountNum, double balance) {
 		using (var connection = new MySqlConnection(connectionString)) {
 			connection.Open();
@@ -45,6 +56,15 @@ public class Dal {
 		}
 	}
 
+	/// <summary>
+	/// Adds a new account to the DAL with the data provided.
+	/// </summary>
+	/// <param name="holder"></param>
+	/// <param name="login"></param>
+	/// <param name="pin"></param>
+	/// <param name="balance"></param>
+	/// <param name="isActive"></param>
+	/// <returns>The ID of the new account.</returns>
 	public static int createAccount(string holder, string login, int pin, double balance, bool isActive) {
 		var dt = new DataTable();
 		using (var connection = new MySqlConnection(connectionString)) {
@@ -66,6 +86,11 @@ public class Dal {
 		}
 	}
 
+	/// <summary>
+	/// Deletes the account of the account number.
+	/// </summary>
+	/// <param name="accountNum"></param>
+	/// <returns>1 for success, 0 for failure.</returns>
 	public static int deleteAccount(int accountNum) {
 		using (var connection = new MySqlConnection(connectionString)) {
 			connection.Open();
@@ -81,7 +106,15 @@ public class Dal {
 		}
 	}
 
-	//TODO: UpdateAccount
+	/// <summary>
+	/// Updates account data.
+	/// </summary>
+	/// <param name="accountNum"></param>
+	/// <param name="holder"></param>
+	/// <param name="login"></param>
+	/// <param name="pin"></param>
+	/// <param name="isActive"></param>
+	/// <returns></returns>
 	public static int updateAccount(int accountNum, string holder, string login, int pin, bool isActive) {
 		using (var connection = new MySqlConnection(connectionString)) {
 			connection.Open();
@@ -102,6 +135,11 @@ public class Dal {
 		}
 	}
 
+	/// <summary>
+	/// Searches for account data by ID.
+	/// </summary>
+	/// <param name="accountNum"></param>
+	/// <returns>A datatable with the matching row of account information.</returns>
 	public static DataTable searchID(int accountNum) {
 		var dt = new DataTable();
 
@@ -124,6 +162,12 @@ public class Dal {
 		return dt;
 	}
 
+	/// <summary>
+	///	Finds the account by login and pin.
+	/// </summary>
+	/// <param name="login"></param>
+	/// <param name="pin"></param>
+	/// <returns>The account number, or -1 if not found.</returns>
 	public static int? login(string login, int pin) {
 		var dt = new DataTable();
 
@@ -144,6 +188,11 @@ public class Dal {
 		}
 	}
 
+	/// <summary>
+	///	Checks to see if the account is an admin account. This is used to decide whether to run the customer or administrator manager upon logging in.
+	/// </summary>
+	/// <param name="accNum"></param>
+	/// <returns>A boolean denoting whether or not the account is an admin.</returns>
 	public static bool getAdmin(int accNum) {
 		var dt = new DataTable();
 

@@ -6,6 +6,10 @@ using dal;
 
 public class LoginManager {
 
+	/// <summary>
+	/// Logs the user in with a valid login name and password.
+	/// </summary>
+	/// <returns>An int representing user ID.</returns>
 	public static int getLogin() {
 		Console.WriteLine("Please Enter Login Name:");
 		string? login = Console.ReadLine();
@@ -28,8 +32,6 @@ public class LoginManager {
 		catch (FormatException) {
 			Console.Clear(); Console.WriteLine("Sorry, PINs are numbers-only. Please try again.");
 		}
-
-
 
 		return -1; //This number will correspond to the actual number that it should get
 	}

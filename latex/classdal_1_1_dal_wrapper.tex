@@ -1,0 +1,117 @@
+\doxysection{dal.\+Dal\+Wrapper Class Reference}
+\hypertarget{classdal_1_1_dal_wrapper}{}\label{classdal_1_1_dal_wrapper}\index{dal.DalWrapper@{dal.DalWrapper}}
+Inheritance diagram for dal.\+Dal\+Wrapper:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdal_1_1_dal_wrapper}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{classdal_1_1_dal_wrapper_acb8055857eb6e23766d81aabbd27a214}{get\+Account\+Balance}} (int account\+Num)
+\item 
+int \doxymbox{\hyperlink{classdal_1_1_dal_wrapper_ab477456d19d43ba89141d3d1f663a54c}{update\+Account\+Balance}} (int account\+Num, double balance)
+\item 
+int \doxymbox{\hyperlink{classdal_1_1_dal_wrapper_a8913d9c938fd6107c0562f8c6eb9f6a4}{create\+Account}} (string holder, string login, int pin, double balance, bool is\+Active)
+\item 
+int \doxymbox{\hyperlink{classdal_1_1_dal_wrapper_a47ed1a7e5a5a54f2e88dd8598f2d2daa}{delete\+Account}} (int account\+Num)
+\item 
+int \doxymbox{\hyperlink{classdal_1_1_dal_wrapper_a22c6516823818a78ab0f6f771a689294}{update\+Account}} (int account\+Num, string holder, string login, int pin, bool is\+Active)
+\item 
+Data\+Table \doxymbox{\hyperlink{classdal_1_1_dal_wrapper_a62e43478e0756ddce6a6397efc4e87e2}{search\+ID}} (int account\+Num)
+\item 
+int? \doxymbox{\hyperlink{classdal_1_1_dal_wrapper_acb9b387aebeedeef875f78e96b90712b}{login}} (string login, int pin)
+\item 
+bool \doxymbox{\hyperlink{classdal_1_1_dal_wrapper_ac8e42d7b0b47dd1e6ec2af7c37b1e770}{get\+Admin}} (int acc\+Num)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classdal_1_1_dal_wrapper_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdal_1_1_dal_wrapper_a8913d9c938fd6107c0562f8c6eb9f6a4}\index{dal.DalWrapper@{dal.DalWrapper}!createAccount@{createAccount}}
+\index{createAccount@{createAccount}!dal.DalWrapper@{dal.DalWrapper}}
+\doxysubsubsection{\texorpdfstring{createAccount()}{createAccount()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_wrapper_a8913d9c938fd6107c0562f8c6eb9f6a4} 
+int dal.\+Dal\+Wrapper.\+create\+Account (\begin{DoxyParamCaption}\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{double}]{balance}{, }\item[{bool}]{is\+Active}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \doxymbox{\hyperlink{interfacedal_1_1_i_dal}{dal.\+IDal}}.
+
+\Hypertarget{classdal_1_1_dal_wrapper_a47ed1a7e5a5a54f2e88dd8598f2d2daa}\index{dal.DalWrapper@{dal.DalWrapper}!deleteAccount@{deleteAccount}}
+\index{deleteAccount@{deleteAccount}!dal.DalWrapper@{dal.DalWrapper}}
+\doxysubsubsection{\texorpdfstring{deleteAccount()}{deleteAccount()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_wrapper_a47ed1a7e5a5a54f2e88dd8598f2d2daa} 
+int dal.\+Dal\+Wrapper.\+delete\+Account (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \doxymbox{\hyperlink{interfacedal_1_1_i_dal}{dal.\+IDal}}.
+
+\Hypertarget{classdal_1_1_dal_wrapper_acb8055857eb6e23766d81aabbd27a214}\index{dal.DalWrapper@{dal.DalWrapper}!getAccountBalance@{getAccountBalance}}
+\index{getAccountBalance@{getAccountBalance}!dal.DalWrapper@{dal.DalWrapper}}
+\doxysubsubsection{\texorpdfstring{getAccountBalance()}{getAccountBalance()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_wrapper_acb8055857eb6e23766d81aabbd27a214} 
+double dal.\+Dal\+Wrapper.\+get\+Account\+Balance (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \doxymbox{\hyperlink{interfacedal_1_1_i_dal}{dal.\+IDal}}.
+
+\Hypertarget{classdal_1_1_dal_wrapper_ac8e42d7b0b47dd1e6ec2af7c37b1e770}\index{dal.DalWrapper@{dal.DalWrapper}!getAdmin@{getAdmin}}
+\index{getAdmin@{getAdmin}!dal.DalWrapper@{dal.DalWrapper}}
+\doxysubsubsection{\texorpdfstring{getAdmin()}{getAdmin()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_wrapper_ac8e42d7b0b47dd1e6ec2af7c37b1e770} 
+bool dal.\+Dal\+Wrapper.\+get\+Admin (\begin{DoxyParamCaption}\item[{int}]{acc\+Num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \doxymbox{\hyperlink{interfacedal_1_1_i_dal}{dal.\+IDal}}.
+
+\Hypertarget{classdal_1_1_dal_wrapper_acb9b387aebeedeef875f78e96b90712b}\index{dal.DalWrapper@{dal.DalWrapper}!login@{login}}
+\index{login@{login}!dal.DalWrapper@{dal.DalWrapper}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_wrapper_acb9b387aebeedeef875f78e96b90712b} 
+int? dal.\+Dal\+Wrapper.\+login (\begin{DoxyParamCaption}\item[{string}]{login}{, }\item[{int}]{pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \doxymbox{\hyperlink{interfacedal_1_1_i_dal}{dal.\+IDal}}.
+
+\Hypertarget{classdal_1_1_dal_wrapper_a62e43478e0756ddce6a6397efc4e87e2}\index{dal.DalWrapper@{dal.DalWrapper}!searchID@{searchID}}
+\index{searchID@{searchID}!dal.DalWrapper@{dal.DalWrapper}}
+\doxysubsubsection{\texorpdfstring{searchID()}{searchID()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_wrapper_a62e43478e0756ddce6a6397efc4e87e2} 
+Data\+Table dal.\+Dal\+Wrapper.\+search\+ID (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \doxymbox{\hyperlink{interfacedal_1_1_i_dal}{dal.\+IDal}}.
+
+\Hypertarget{classdal_1_1_dal_wrapper_a22c6516823818a78ab0f6f771a689294}\index{dal.DalWrapper@{dal.DalWrapper}!updateAccount@{updateAccount}}
+\index{updateAccount@{updateAccount}!dal.DalWrapper@{dal.DalWrapper}}
+\doxysubsubsection{\texorpdfstring{updateAccount()}{updateAccount()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_wrapper_a22c6516823818a78ab0f6f771a689294} 
+int dal.\+Dal\+Wrapper.\+update\+Account (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{, }\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{is\+Active}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \doxymbox{\hyperlink{interfacedal_1_1_i_dal}{dal.\+IDal}}.
+
+\Hypertarget{classdal_1_1_dal_wrapper_ab477456d19d43ba89141d3d1f663a54c}\index{dal.DalWrapper@{dal.DalWrapper}!updateAccountBalance@{updateAccountBalance}}
+\index{updateAccountBalance@{updateAccountBalance}!dal.DalWrapper@{dal.DalWrapper}}
+\doxysubsubsection{\texorpdfstring{updateAccountBalance()}{updateAccountBalance()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_wrapper_ab477456d19d43ba89141d3d1f663a54c} 
+int dal.\+Dal\+Wrapper.\+update\+Account\+Balance (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{, }\item[{double}]{balance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implements \doxymbox{\hyperlink{interfacedal_1_1_i_dal}{dal.\+IDal}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Project/\+Dal.\+cs\end{DoxyCompactItemize}

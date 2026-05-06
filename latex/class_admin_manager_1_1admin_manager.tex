@@ -1,0 +1,314 @@
+\doxysection{Admin\+Manager.\+admin\+Manager Class Reference}
+\hypertarget{class_admin_manager_1_1admin_manager}{}\label{class_admin_manager_1_1admin_manager}\index{AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_aa7a8329a02c98bb2eb6fa6b11509cb2e}{admin\+Manager}} ()
+\item 
+\doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_a2c2ed52eb48f37fbcc2cc46f1678e3c7}{admin\+Manager}} (\doxymbox{\hyperlink{interfacedal_1_1_i_dal}{IDal}} \doxymbox{\hyperlink{namespacedal}{dal}})
+\item 
+void \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_adc7b42dff8153d07312164c251b229f9}{create\+New\+Account\+Wrapper}} ()
+\item 
+void \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_ac4a837c4aeaa577b84462f03a6f150f5}{create\+New\+Account}} (string h, string l, int p, double b, string a)
+\item 
+void \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_a4a4b0895d8f3fc0065b13bfc9b5c5ba9}{delete\+Account\+Wrapper}} ()
+\item 
+\Hypertarget{class_admin_manager_1_1admin_manager_a9e881f85538eaa4cc355e1908556ed4a}\label{class_admin_manager_1_1admin_manager_a9e881f85538eaa4cc355e1908556ed4a} 
+bool {\bfseries delete\+Account} (int num, int num2)
+\item 
+\Hypertarget{class_admin_manager_1_1admin_manager_acc59d4f262b0e5802db3268a3f28902e}\label{class_admin_manager_1_1admin_manager_acc59d4f262b0e5802db3268a3f28902e} 
+void {\bfseries update\+Account} ()
+\begin{DoxyCompactList}\small\item\em Prompts the user for an account number and then for an attribute to change about the account. \end{DoxyCompactList}\item 
+\Hypertarget{class_admin_manager_1_1admin_manager_a69cefb6adb15561ca6b6ca7718ecc9d0}\label{class_admin_manager_1_1admin_manager_a69cefb6adb15561ca6b6ca7718ecc9d0} 
+void {\bfseries search\+Wrapper} ()
+\begin{DoxyCompactList}\small\item\em Prompts the user to enter an account id number, then calls search\+For\+Account to get the information about the account. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_a47efd67ae73089393aeb94bfe92e5cd2}{search\+For\+Account}} (int val)
+\begin{DoxyCompactList}\small\item\em Prints data about an account after getting its information from the dal. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_a9b0d769ef64384db52578c6340898dbd}{update\+Holder}} (int id, string new\+Holder, string \doxymbox{\hyperlink{namespacelogin}{login}}, int pin, bool status)
+\begin{DoxyCompactList}\small\item\em Updates the holder name of the account using the dal. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_a667fa2b212fe65f3e3888308b0f663d7}{update\+Holder\+Wrapper}} (int id, string holder, string \doxymbox{\hyperlink{namespacelogin}{login}}, int pin, bool status)
+\begin{DoxyCompactList}\small\item\em Prompts the user for a new holder name for the selected account and executes with update\+Holder. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_a5b1053520615b9849468909358a4bc43}{update\+Login}} (int id, string holder, string \doxymbox{\hyperlink{namespacelogin}{login}}, int pin, bool status)
+\begin{DoxyCompactList}\small\item\em Updates the login username of the account using the dal. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_a43dde264130c01192c147cb3187b3650}{update\+Login\+Wrapper}} (int id, string holder, string \doxymbox{\hyperlink{namespacelogin}{login}}, int pin, bool status)
+\begin{DoxyCompactList}\small\item\em Prompts the user for a new login for the selected account and executes with update\+Login. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_abc1080df455bab572923735f1b18fd58}{update\+PIN}} (int id, string holder, string \doxymbox{\hyperlink{namespacelogin}{login}}, int pin, bool status)
+\begin{DoxyCompactList}\small\item\em Updates the PIN of the account using the dal. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_ac5a722d9ff434a40a819d36da911d68e}{update\+Pin\+Wrapper}} (int id, string holder, string \doxymbox{\hyperlink{namespacelogin}{login}}, int pin, bool status)
+\begin{DoxyCompactList}\small\item\em Prompts the user for a new pin for the selected account and executes with update\+PIN. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_a18d9ded8d2254f37b0b99a9b8a4134d5}{update\+Status}} (int id, string holder, string \doxymbox{\hyperlink{namespacelogin}{login}}, int pin, bool status, string new\+Status)
+\begin{DoxyCompactList}\small\item\em Updates the activity status of the account using the dal. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_admin_manager_1_1admin_manager_afa9c580e33ec6a3e13692b5cef81a50b}{update\+Status\+Wrapper}} (int id, string holder, string \doxymbox{\hyperlink{namespacelogin}{login}}, int pin, bool status)
+\begin{DoxyCompactList}\small\item\em Prompts the user for a new status for the selected account. \end{DoxyCompactList}\item 
+\Hypertarget{class_admin_manager_1_1admin_manager_a7c2d21a15ea79f908957e3ec262743ae}\label{class_admin_manager_1_1admin_manager_a7c2d21a15ea79f908957e3ec262743ae} 
+void {\bfseries menu} ()
+\begin{DoxyCompactList}\small\item\em Shows and prompts the UI menu for the admin manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_admin_manager_1_1admin_manager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_admin_manager_1_1admin_manager_aa7a8329a02c98bb2eb6fa6b11509cb2e}\index{AdminManager.adminManager@{AdminManager.adminManager}!adminManager@{adminManager}}
+\index{adminManager@{adminManager}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{adminManager()}{adminManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_aa7a8329a02c98bb2eb6fa6b11509cb2e} 
+Admin\+Manager.\+admin\+Manager.\+admin\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+summary\texorpdfstring{$>$}{>} Constructs the admin manager. /\+summary\texorpdfstring{$>$}{>} param name="{}dal"{}\texorpdfstring{$>$}{>}\doxylink{classdal_1_1_dal}{Dal} Wrapper to carry out database functions.\Hypertarget{class_admin_manager_1_1admin_manager_a2c2ed52eb48f37fbcc2cc46f1678e3c7}\index{AdminManager.adminManager@{AdminManager.adminManager}!adminManager@{adminManager}}
+\index{adminManager@{adminManager}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{adminManager()}{adminManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_a2c2ed52eb48f37fbcc2cc46f1678e3c7} 
+Admin\+Manager.\+admin\+Manager.\+admin\+Manager (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{interfacedal_1_1_i_dal}{IDal}}}]{dal}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+summary\texorpdfstring{$>$}{>} Prompts the user for data to create a new account, then runs create\+New\+Account to execute. /\+summary\texorpdfstring{$>$}{>} 
+
+\label{doc-func-members}
+\Hypertarget{class_admin_manager_1_1admin_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_admin_manager_1_1admin_manager_ac4a837c4aeaa577b84462f03a6f150f5}\index{AdminManager.adminManager@{AdminManager.adminManager}!createNewAccount@{createNewAccount}}
+\index{createNewAccount@{createNewAccount}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{createNewAccount()}{createNewAccount()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_ac4a837c4aeaa577b84462f03a6f150f5} 
+void Admin\+Manager.\+admin\+Manager.\+create\+New\+Account (\begin{DoxyParamCaption}\item[{string}]{h}{, }\item[{string}]{l}{, }\item[{int}]{p}{, }\item[{double}]{b}{, }\item[{string}]{a}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+summary\texorpdfstring{$>$}{>} Prompts the user for an account\textquotesingle{}s ID to delete, then runs delete\+Account to execute. /\+summary\texorpdfstring{$>$}{>} \Hypertarget{class_admin_manager_1_1admin_manager_adc7b42dff8153d07312164c251b229f9}\index{AdminManager.adminManager@{AdminManager.adminManager}!createNewAccountWrapper@{createNewAccountWrapper}}
+\index{createNewAccountWrapper@{createNewAccountWrapper}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{createNewAccountWrapper()}{createNewAccountWrapper()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_adc7b42dff8153d07312164c251b229f9} 
+void Admin\+Manager.\+admin\+Manager.\+create\+New\+Account\+Wrapper (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+summary\texorpdfstring{$>$}{>} Uses the data entered to create a new account in the dal. /\+summary\texorpdfstring{$>$}{>} param name="{}h"{}\texorpdfstring{$>$}{>}Holder name
+
+param name="{}l"{}\texorpdfstring{$>$}{>}Login username
+
+param name="{}p"{}\texorpdfstring{$>$}{>}Pin number
+
+param name="{}b"{}\texorpdfstring{$>$}{>}Balance
+
+param name="{}a"{}\texorpdfstring{$>$}{>}Active status\Hypertarget{class_admin_manager_1_1admin_manager_a4a4b0895d8f3fc0065b13bfc9b5c5ba9}\index{AdminManager.adminManager@{AdminManager.adminManager}!deleteAccountWrapper@{deleteAccountWrapper}}
+\index{deleteAccountWrapper@{deleteAccountWrapper}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{deleteAccountWrapper()}{deleteAccountWrapper()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_a4a4b0895d8f3fc0065b13bfc9b5c5ba9} 
+void Admin\+Manager.\+admin\+Manager.\+delete\+Account\+Wrapper (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+summary\texorpdfstring{$>$}{>} Uses the data entered to delete an account by id number in the dal, checking for matching inputs to ensure intent. /\+summary\texorpdfstring{$>$}{>} \Hypertarget{class_admin_manager_1_1admin_manager_a47efd67ae73089393aeb94bfe92e5cd2}\index{AdminManager.adminManager@{AdminManager.adminManager}!searchForAccount@{searchForAccount}}
+\index{searchForAccount@{searchForAccount}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{searchForAccount()}{searchForAccount()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_a47efd67ae73089393aeb94bfe92e5cd2} 
+bool Admin\+Manager.\+admin\+Manager.\+search\+For\+Account (\begin{DoxyParamCaption}\item[{int}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints data about an account after getting its information from the dal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The account ID.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean to denote success.
+\end{DoxyReturn}
+\Hypertarget{class_admin_manager_1_1admin_manager_a9b0d769ef64384db52578c6340898dbd}\index{AdminManager.adminManager@{AdminManager.adminManager}!updateHolder@{updateHolder}}
+\index{updateHolder@{updateHolder}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{updateHolder()}{updateHolder()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_a9b0d769ef64384db52578c6340898dbd} 
+bool Admin\+Manager.\+admin\+Manager.\+update\+Holder (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{string}]{new\+Holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the holder name of the account using the dal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the account\\
+\hline
+{\em new\+Holder} & New holder name\\
+\hline
+{\em login} & Existing login name\\
+\hline
+{\em pin} & Existing pin password\\
+\hline
+{\em status} & Existing activity status\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean to denote success.
+\end{DoxyReturn}
+\Hypertarget{class_admin_manager_1_1admin_manager_a667fa2b212fe65f3e3888308b0f663d7}\index{AdminManager.adminManager@{AdminManager.adminManager}!updateHolderWrapper@{updateHolderWrapper}}
+\index{updateHolderWrapper@{updateHolderWrapper}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{updateHolderWrapper()}{updateHolderWrapper()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_a667fa2b212fe65f3e3888308b0f663d7} 
+void Admin\+Manager.\+admin\+Manager.\+update\+Holder\+Wrapper (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prompts the user for a new holder name for the selected account and executes with update\+Holder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em holder} & \\
+\hline
+{\em login} & \\
+\hline
+{\em pin} & \\
+\hline
+{\em status} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_admin_manager_1_1admin_manager_a5b1053520615b9849468909358a4bc43}\index{AdminManager.adminManager@{AdminManager.adminManager}!updateLogin@{updateLogin}}
+\index{updateLogin@{updateLogin}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{updateLogin()}{updateLogin()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_a5b1053520615b9849468909358a4bc43} 
+bool Admin\+Manager.\+admin\+Manager.\+update\+Login (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the login username of the account using the dal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the account\\
+\hline
+{\em holder} & Existing holder name\\
+\hline
+{\em login} & New login username\\
+\hline
+{\em pin} & Existing pin password\\
+\hline
+{\em status} & Existing activity status\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean to denote success.
+\end{DoxyReturn}
+\Hypertarget{class_admin_manager_1_1admin_manager_a43dde264130c01192c147cb3187b3650}\index{AdminManager.adminManager@{AdminManager.adminManager}!updateLoginWrapper@{updateLoginWrapper}}
+\index{updateLoginWrapper@{updateLoginWrapper}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{updateLoginWrapper()}{updateLoginWrapper()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_a43dde264130c01192c147cb3187b3650} 
+void Admin\+Manager.\+admin\+Manager.\+update\+Login\+Wrapper (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prompts the user for a new login for the selected account and executes with update\+Login. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em holder} & \\
+\hline
+{\em login} & \\
+\hline
+{\em pin} & \\
+\hline
+{\em status} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_admin_manager_1_1admin_manager_abc1080df455bab572923735f1b18fd58}\index{AdminManager.adminManager@{AdminManager.adminManager}!updatePIN@{updatePIN}}
+\index{updatePIN@{updatePIN}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{updatePIN()}{updatePIN()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_abc1080df455bab572923735f1b18fd58} 
+bool Admin\+Manager.\+admin\+Manager.\+update\+PIN (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the PIN of the account using the dal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the account\\
+\hline
+{\em holder} & Existing holder name\\
+\hline
+{\em login} & Existing login username\\
+\hline
+{\em pin} & New pin password\\
+\hline
+{\em status} & Existing activity status\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean to denote success.
+\end{DoxyReturn}
+\Hypertarget{class_admin_manager_1_1admin_manager_ac5a722d9ff434a40a819d36da911d68e}\index{AdminManager.adminManager@{AdminManager.adminManager}!updatePinWrapper@{updatePinWrapper}}
+\index{updatePinWrapper@{updatePinWrapper}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{updatePinWrapper()}{updatePinWrapper()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_ac5a722d9ff434a40a819d36da911d68e} 
+void Admin\+Manager.\+admin\+Manager.\+update\+Pin\+Wrapper (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prompts the user for a new pin for the selected account and executes with update\+PIN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em holder} & \\
+\hline
+{\em login} & \\
+\hline
+{\em pin} & \\
+\hline
+{\em status} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_admin_manager_1_1admin_manager_a18d9ded8d2254f37b0b99a9b8a4134d5}\index{AdminManager.adminManager@{AdminManager.adminManager}!updateStatus@{updateStatus}}
+\index{updateStatus@{updateStatus}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{updateStatus()}{updateStatus()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_a18d9ded8d2254f37b0b99a9b8a4134d5} 
+bool Admin\+Manager.\+admin\+Manager.\+update\+Status (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{status}{, }\item[{string}]{new\+Status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the activity status of the account using the dal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the account\\
+\hline
+{\em holder} & Existing holder name\\
+\hline
+{\em login} & Existing login username\\
+\hline
+{\em pin} & Existing pin password\\
+\hline
+{\em status} & Existing activity status\\
+\hline
+{\em new\+Status} & The new status, represented by \textquotesingle{}y\textquotesingle{} for active and \textquotesingle{}n\textquotesingle{} for disabled.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean to denote success.
+\end{DoxyReturn}
+\Hypertarget{class_admin_manager_1_1admin_manager_afa9c580e33ec6a3e13692b5cef81a50b}\index{AdminManager.adminManager@{AdminManager.adminManager}!updateStatusWrapper@{updateStatusWrapper}}
+\index{updateStatusWrapper@{updateStatusWrapper}!AdminManager.adminManager@{AdminManager.adminManager}}
+\doxysubsubsection{\texorpdfstring{updateStatusWrapper()}{updateStatusWrapper()}}
+{\footnotesize\ttfamily \label{class_admin_manager_1_1admin_manager_afa9c580e33ec6a3e13692b5cef81a50b} 
+void Admin\+Manager.\+admin\+Manager.\+update\+Status\+Wrapper (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prompts the user for a new status for the selected account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em holder} & \\
+\hline
+{\em login} & \\
+\hline
+{\em pin} & \\
+\hline
+{\em status} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Project/\+Admin\+Manager.\+cs\end{DoxyCompactItemize}

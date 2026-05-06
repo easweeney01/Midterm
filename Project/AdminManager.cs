@@ -7,14 +7,24 @@ using dal;
 public class adminManager {
 	private readonly IDal _dal;
 
+	///<summary>
+	///Constructs the admin manager with a default dal wrapper.
+	///</summary>
 	public adminManager() {
 		_dal = new DalWrapper();
 	}
 
+	///<summary>
+	///Constructs the admin manager.
+	///</summary>
+	///<param name="dal">Dal Wrapper to carry out database functions.</param>
 	public adminManager(IDal dal) {
 		_dal = dal;
 	}
 
+	///<summary>
+	///Prompts the user for data to create a new account, then runs createNewAccount to execute.
+	///</summary>
 	public void createNewAccountWrapper() {
 		Console.Clear();
 
@@ -45,11 +55,22 @@ public class adminManager {
 		}
 	}
 
+	///<summary>
+	///Uses the data entered to create a new account in the dal.
+	///</summary>
+	///<param name="h">Holder name</param>
+	///<param name="l">Login username</param>
+	///<param name="p">Pin number</param>
+	///<param name="b">Balance</param>
+	///<param name="a">Active status</param>
 	public void createNewAccount(string h, string l, int p, double b, string a) {
 		int id = _dal.createAccount(h, l, p, b, a == "y");
 		Console.WriteLine("Account " + id + " Successfully Created.");
 	}
 
+	///<summary>
+	///Prompts the user for an account's ID to delete, then runs deleteAccount to execute.
+	///</summary>
 	public void deleteAccountWrapper() {
 		Console.Clear();
 		Console.Write("Enter the account number to which you want to delete:");
@@ -78,6 +99,9 @@ public class adminManager {
 		}
 	}
 
+	///<summary>
+	///Uses the data entered to delete an account by id number in the dal, checking for matching inputs to ensure intent.
+	///</summary>
 	public bool deleteAccount(int num, int num2) {
 		if (num == num2) {
 			int del = _dal.deleteAccount(num);
@@ -93,6 +117,9 @@ public class adminManager {
 		}
 	}
 
+	/// <summary>
+	/// Prompts the user for an account number and then for an attribute to change about the account.
+	/// </summary>
 	public void updateAccount() {
 		Console.Clear();
 		Console.Write("Enter the Account Number:");
@@ -150,6 +177,9 @@ public class adminManager {
 
 	}
 
+	/// <summary>
+	///	Prompts the user to enter an account id number, then calls searchForAccount to get the information about the account.
+	/// </summary>
 	public void searchWrapper() {
 		Console.Clear();
 		bool done = false;
@@ -168,6 +198,11 @@ public class adminManager {
 		}
 	}
 
+	/// <summary>
+	/// Prints data about an account after getting its information from the dal.
+	/// </summary>
+	/// <param name="val">The account ID.</param>
+	/// <returns>A boolean to denote success.</returns>
 	public bool searchForAccount(int val) {
 		DataTable dt = _dal.searchID(val);
 
@@ -201,6 +236,15 @@ public class adminManager {
 		return true;
 	}
 
+	/// <summary>
+	/// Updates the holder name of the account using the dal.
+	/// </summary>
+	/// <param name="id">The ID of the account</param>
+	/// <param name="newHolder">New holder name</param>
+	/// <param name="login">Existing login name</param>
+	/// <param name="pin">Existing pin password</param>
+	/// <param name="status">Existing activity status</param>
+	/// <returns>A boolean to denote success.</returns>
 	public bool updateHolder(int id, string newHolder, string login, int pin, bool status) {
 		if (newHolder == null) {
 			Console.WriteLine("Invalid input, please try again."); return false;
@@ -213,6 +257,14 @@ public class adminManager {
 		return true;
 	}
 
+	/// <summary>
+	/// Prompts the user for a new holder name for the selected account and executes with updateHolder.
+	/// </summary>
+	/// <param name="id"></param>
+	/// <param name="holder"></param>
+	/// <param name="login"></param>
+	/// <param name="pin"></param>
+	/// <param name="status"></param>
 	public void updateHolderWrapper(int id, string holder, string login, int pin, bool status) {
 		bool done = false;
 
@@ -223,6 +275,15 @@ public class adminManager {
 		}
 	}
 
+	/// <summary>
+	/// Updates the login username of the account using the dal.
+	/// </summary>
+	/// <param name="id">The ID of the account</param>
+	/// <param name="holder">Existing holder name</param>
+	/// <param name="login">New login username</param>
+	/// <param name="pin">Existing pin password</param>
+	/// <param name="status">Existing activity status</param>
+	/// <returns>A boolean to denote success.</returns>
 	public bool updateLogin(int id, string holder, string login, int pin, bool status) {
 		if (login == null) {
 			Console.WriteLine("Invalid input, please try again."); return false;
@@ -233,6 +294,14 @@ public class adminManager {
 		return true;
 	}
 
+	/// <summary>
+	/// Prompts the user for a new login for the selected account and executes with updateLogin.
+	/// </summary>
+	/// <param name="id"></param>
+	/// <param name="holder"></param>
+	/// <param name="login"></param>
+	/// <param name="pin"></param>
+	/// <param name="status"></param>
 	public void updateLoginWrapper(int id, string holder, string login, int pin, bool status) {
 		bool done = false;
 
@@ -243,6 +312,15 @@ public class adminManager {
 		}
 	}
 
+	/// <summary>
+	/// Updates the PIN of the account using the dal.
+	/// </summary>
+	/// <param name="id">The ID of the account</param>
+	/// <param name="holder">Existing holder name</param>
+	/// <param name="login">Existing login username</param>
+	/// <param name="pin">New pin password</param>
+	/// <param name="status">Existing activity status</param>
+	/// <returns>A boolean to denote success.</returns>
 	public bool updatePIN(int id, string holder, string login, int pin, bool status) {
 		if (pin < 0 || pin > 99999) { Console.WriteLine("Invalid PIN."); return false; }
 
@@ -251,6 +329,14 @@ public class adminManager {
 		return true;
 	}
 
+	/// <summary>
+	/// Prompts the user for a new pin for the selected account and executes with updatePIN.
+	/// </summary>
+	/// <param name="id"></param>
+	/// <param name="holder"></param>
+	/// <param name="login"></param>
+	/// <param name="pin"></param>
+	/// <param name="status"></param>
 	public void updatePinWrapper(int id, string holder, string login, int pin, bool status) {
 		bool done = false;
 
@@ -261,6 +347,16 @@ public class adminManager {
 		}
 	}
 
+	/// <summary>
+	/// Updates the activity status of the account using the dal.
+	/// </summary>
+	/// <param name="id">The ID of the account</param>
+	/// <param name="holder">Existing holder name</param>
+	/// <param name="login">Existing login username</param>
+	/// <param name="pin">Existing pin password</param>
+	/// <param name="status">Existing activity status</param>
+	/// <param name="newStatus">The new status, represented by 'y' for active and 'n' for disabled.</param>
+	/// <returns>A boolean to denote success.</returns>
 	public bool updateStatus(int id, string holder, string login, int pin, bool status, string newStatus) {
 		if (newStatus == null) {
 			Console.WriteLine("Invalid input, please try again."); return false;
@@ -277,6 +373,14 @@ public class adminManager {
 		return true;
 	}
 
+	/// <summary>
+	/// Prompts the user for a new status for the selected account.
+	/// </summary>
+	/// <param name="id"></param>
+	/// <param name="holder"></param>
+	/// <param name="login"></param>
+	/// <param name="pin"></param>
+	/// <param name="status"></param>
 	public void updateStatusWrapper(int id, string holder, string login, int pin, bool status) {
 		bool done = false;
 
@@ -287,6 +391,9 @@ public class adminManager {
 		}
 	}
 
+	/// <summary>
+	/// Shows and prompts the UI menu for the admin manager.
+	/// </summary>
 	public void menu() {
 		string? val = "";
 		while (val != "6") {

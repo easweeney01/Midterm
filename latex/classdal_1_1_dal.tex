@@ -1,0 +1,195 @@
+\doxysection{dal.\+Dal Class Reference}
+\hypertarget{classdal_1_1_dal}{}\label{classdal_1_1_dal}\index{dal.Dal@{dal.Dal}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \doxymbox{\hyperlink{classdal_1_1_dal_a0cb9643f275fdc498c79ad3d9deef9c0}{get\+Account\+Balance}} (int account\+Num)
+\begin{DoxyCompactList}\small\item\em Returns account balance from DAL. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{classdal_1_1_dal_a2cedb914a8738658d6dafc2c12494edc}{update\+Account\+Balance}} (int account\+Num, double balance)
+\begin{DoxyCompactList}\small\item\em Updates account balance to DAL. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{classdal_1_1_dal_ae6aaf1daab508347b5312c6a11408c1b}{create\+Account}} (string holder, string \doxymbox{\hyperlink{classdal_1_1_dal_a393bcbb448821807cac04135c07b29d6}{login}}, int pin, double balance, bool is\+Active)
+\begin{DoxyCompactList}\small\item\em Adds a new account to the DAL with the data provided. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{classdal_1_1_dal_aae98c6c89d4df6b8d4d30c5a87f095b2}{delete\+Account}} (int account\+Num)
+\begin{DoxyCompactList}\small\item\em Deletes the account of the account number. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{classdal_1_1_dal_a65c64bc2fd7e2063ea2ab8688ce6eb30}{update\+Account}} (int account\+Num, string holder, string \doxymbox{\hyperlink{classdal_1_1_dal_a393bcbb448821807cac04135c07b29d6}{login}}, int pin, bool is\+Active)
+\begin{DoxyCompactList}\small\item\em Updates account data. \end{DoxyCompactList}\item 
+static Data\+Table \doxymbox{\hyperlink{classdal_1_1_dal_a9268f8fd1c5f313e8162d3509bce41f7}{search\+ID}} (int account\+Num)
+\begin{DoxyCompactList}\small\item\em Searches for account data by ID. \end{DoxyCompactList}\item 
+static ? int \doxymbox{\hyperlink{classdal_1_1_dal_a393bcbb448821807cac04135c07b29d6}{login}} (string login, int pin)
+\begin{DoxyCompactList}\small\item\em Finds the account by login and pin. \end{DoxyCompactList}\item 
+static bool \doxymbox{\hyperlink{classdal_1_1_dal_aa1f286151a275a27d55f620cbb971756}{get\+Admin}} (int acc\+Num)
+\begin{DoxyCompactList}\small\item\em Checks to see if the account is an admin account. This is used to decide whether to run the customer or administrator manager upon logging in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classdal_1_1_dal_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdal_1_1_dal_ae6aaf1daab508347b5312c6a11408c1b}\index{dal.Dal@{dal.Dal}!createAccount@{createAccount}}
+\index{createAccount@{createAccount}!dal.Dal@{dal.Dal}}
+\doxysubsubsection{\texorpdfstring{createAccount()}{createAccount()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_ae6aaf1daab508347b5312c6a11408c1b} 
+int dal.\+Dal.\+create\+Account (\begin{DoxyParamCaption}\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{double}]{balance}{, }\item[{bool}]{is\+Active}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Adds a new account to the DAL with the data provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em holder} & \\
+\hline
+{\em login} & \\
+\hline
+{\em pin} & \\
+\hline
+{\em balance} & \\
+\hline
+{\em is\+Active} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of the new account.
+\end{DoxyReturn}
+\Hypertarget{classdal_1_1_dal_aae98c6c89d4df6b8d4d30c5a87f095b2}\index{dal.Dal@{dal.Dal}!deleteAccount@{deleteAccount}}
+\index{deleteAccount@{deleteAccount}!dal.Dal@{dal.Dal}}
+\doxysubsubsection{\texorpdfstring{deleteAccount()}{deleteAccount()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_aae98c6c89d4df6b8d4d30c5a87f095b2} 
+int dal.\+Dal.\+delete\+Account (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Deletes the account of the account number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Num} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 for success, 0 for failure.
+\end{DoxyReturn}
+\Hypertarget{classdal_1_1_dal_a0cb9643f275fdc498c79ad3d9deef9c0}\index{dal.Dal@{dal.Dal}!getAccountBalance@{getAccountBalance}}
+\index{getAccountBalance@{getAccountBalance}!dal.Dal@{dal.Dal}}
+\doxysubsubsection{\texorpdfstring{getAccountBalance()}{getAccountBalance()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_a0cb9643f275fdc498c79ad3d9deef9c0} 
+double dal.\+Dal.\+get\+Account\+Balance (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns account balance from DAL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Num} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns account balance.
+\end{DoxyReturn}
+\Hypertarget{classdal_1_1_dal_aa1f286151a275a27d55f620cbb971756}\index{dal.Dal@{dal.Dal}!getAdmin@{getAdmin}}
+\index{getAdmin@{getAdmin}!dal.Dal@{dal.Dal}}
+\doxysubsubsection{\texorpdfstring{getAdmin()}{getAdmin()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_aa1f286151a275a27d55f620cbb971756} 
+bool dal.\+Dal.\+get\+Admin (\begin{DoxyParamCaption}\item[{int}]{acc\+Num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Checks to see if the account is an admin account. This is used to decide whether to run the customer or administrator manager upon logging in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em acc\+Num} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean denoting whether or not the account is an admin.
+\end{DoxyReturn}
+\Hypertarget{classdal_1_1_dal_a393bcbb448821807cac04135c07b29d6}\index{dal.Dal@{dal.Dal}!login@{login}}
+\index{login@{login}!dal.Dal@{dal.Dal}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_a393bcbb448821807cac04135c07b29d6} 
+? int dal.\+Dal.\+login (\begin{DoxyParamCaption}\item[{string}]{login}{, }\item[{int}]{pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Finds the account by login and pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em login} & \\
+\hline
+{\em pin} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The account number, or -\/1 if not found.
+\end{DoxyReturn}
+\Hypertarget{classdal_1_1_dal_a9268f8fd1c5f313e8162d3509bce41f7}\index{dal.Dal@{dal.Dal}!searchID@{searchID}}
+\index{searchID@{searchID}!dal.Dal@{dal.Dal}}
+\doxysubsubsection{\texorpdfstring{searchID()}{searchID()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_a9268f8fd1c5f313e8162d3509bce41f7} 
+Data\+Table dal.\+Dal.\+search\+ID (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Searches for account data by ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Num} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A datatable with the matching row of account information.
+\end{DoxyReturn}
+\Hypertarget{classdal_1_1_dal_a65c64bc2fd7e2063ea2ab8688ce6eb30}\index{dal.Dal@{dal.Dal}!updateAccount@{updateAccount}}
+\index{updateAccount@{updateAccount}!dal.Dal@{dal.Dal}}
+\doxysubsubsection{\texorpdfstring{updateAccount()}{updateAccount()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_a65c64bc2fd7e2063ea2ab8688ce6eb30} 
+int dal.\+Dal.\+update\+Account (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{, }\item[{string}]{holder}{, }\item[{string}]{login}{, }\item[{int}]{pin}{, }\item[{bool}]{is\+Active}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Updates account data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Num} & \\
+\hline
+{\em holder} & \\
+\hline
+{\em login} & \\
+\hline
+{\em pin} & \\
+\hline
+{\em is\+Active} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classdal_1_1_dal_a2cedb914a8738658d6dafc2c12494edc}\index{dal.Dal@{dal.Dal}!updateAccountBalance@{updateAccountBalance}}
+\index{updateAccountBalance@{updateAccountBalance}!dal.Dal@{dal.Dal}}
+\doxysubsubsection{\texorpdfstring{updateAccountBalance()}{updateAccountBalance()}}
+{\footnotesize\ttfamily \label{classdal_1_1_dal_a2cedb914a8738658d6dafc2c12494edc} 
+int dal.\+Dal.\+update\+Account\+Balance (\begin{DoxyParamCaption}\item[{int}]{account\+Num}{, }\item[{double}]{balance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Updates account balance to DAL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em account\+Num} & \\
+\hline
+{\em balance} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 for success; 0 for failure.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Project/\+Dal.\+cs\end{DoxyCompactItemize}

@@ -21,6 +21,9 @@ public class customerManager {
 		getInfo(user);
 	}
 
+	/// <summary>
+	/// Gets account information for future use.
+	/// </summary>
 	public void getInfo(int user) {
 		DataTable dt = _dal.searchID(user);
 
@@ -37,6 +40,9 @@ public class customerManager {
 		}
 	}
 
+	/// <summary>
+	/// Prompts the customer for an amount of money to withdraw and calls withdraw to execute.
+	/// </summary>
 	public void withdrawWrap() {
 		bool success = false;
 
@@ -48,6 +54,12 @@ public class customerManager {
 		}
 	}
 
+	/// <summary>
+	/// Withdraws the money into the account using the dal.
+	/// </summary>
+	/// <param name="amtS">The amount of money to be removed as a string.</param>
+	/// <returns>A boolean to denote success.</returns>
+	/// <exception cref="FormatException"></exception>
 	public bool withdraw(string amtS) {
 		if (!Double.TryParse(amtS, out double amt)) {
 			throw new FormatException("Withdrawal must be a number. Please try again.");
@@ -70,6 +82,9 @@ public class customerManager {
 		return true;
 	}
 
+	/// <summary>
+	/// Prompts the customer for an amount of money to deposit and calls deposit to execute.
+	/// </summary>
 	public void depositWrap() {
 		bool success = false;
 
@@ -81,6 +96,12 @@ public class customerManager {
 		}
 	}
 
+	/// <summary>
+	/// Deposits the money into the account using the dal.
+	/// </summary>
+	/// <param name="amtS">The amount of money entered as a string.</param>
+	/// <returns>A boolean to denote success.</returns>
+	/// <exception cref="FormatException"></exception>
 	public bool deposit(string amtS) {
 		if (!Double.TryParse(amtS, out double amt)) {
 			throw new FormatException("Deposit must be a number. Please try again.");
@@ -99,12 +120,18 @@ public class customerManager {
 		return true;
 	}
 
+	/// <summary>
+	/// Displays the account number, date, and balance of the account currently signed-in.
+	/// </summary>
 	public void display() {
 		Console.WriteLine("Account #" + accountNumber);
 		Console.WriteLine("Date: " + DateTime.Today.ToString("MM/dd/yyyy"));
 		Console.WriteLine("Balance: " + balance);
 	}
 
+	/// <summary>
+	/// Shows and prompts the UI menu for the customer manager.
+	/// </summary>
 	public void menu() {
 		string? val = "";
 		while (val != "5") {
