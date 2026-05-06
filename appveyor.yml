@@ -4,10 +4,10 @@ environment:
   CODECOV_TOKEN:
     secure: efd83f5a-feff-4fec-844d-a7a3a7c339e5
 
-build_script:
-  - dotnet format Project/Midterm.sln --verify-no-changes
-
+install:
   - dotnet tool restore
+
+build_script:
   - dotnet cake
 
 test_script:
@@ -18,4 +18,4 @@ after_test:
   - codecov.exe -f "**/coverage.cobertura.xml" -t %CODECOV_TOKEN%
 
 on_failure:
-  - echo "Build failed! AppVeyor will email you automatically."
+  - echo "Build failed."
