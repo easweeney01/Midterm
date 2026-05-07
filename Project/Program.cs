@@ -6,9 +6,10 @@ using dal;
 using Org.BouncyCastle.Pqc.Crypto.Cmce;
 using System.ComponentModel;
 using AdminManager;
+using System.Diagnostics.CodeAnalysis;
 
+[ExcludeFromCodeCoverage]
 public class Atm {
-
 
 	public static void Main(string[] args) {
 		int user = -1;

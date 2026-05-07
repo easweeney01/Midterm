@@ -2,6 +2,7 @@ namespace login;
 
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics.CodeAnalysis;
 using dal;
 
 public class LoginManager {
@@ -20,6 +21,7 @@ public class LoginManager {
 	/// Logs the user in with a valid login name and password.
 	/// </summary>
 	/// <returns>An int representing user ID.</returns>
+	[ExcludeFromCodeCoverage]
 	public int getLogin() {
 		Console.WriteLine("Please Enter Login Name:");
 		string? login = Console.ReadLine();

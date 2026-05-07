@@ -4,8 +4,10 @@ namespace dal;
 
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
+[ExcludeFromCodeCoverage]
 public class Dal {
 	private const string connectionString = "server=host.docker.internal;port=3333;uid=root;pwd=a;database=midterm";
 
