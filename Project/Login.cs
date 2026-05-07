@@ -27,10 +27,11 @@ public class LoginManager {
 		string? pinS = Console.ReadLine();
 
 		try {
-			var log = tryLogin(login,pinS);
-			if (log == -1) {Console.Clear(); Console.WriteLine("Sorry, please try again.");}
+			var log = tryLogin(login, pinS);
+			if (log == -1) { Console.Clear(); Console.WriteLine("Sorry, please try again."); }
 			return log;
-		} catch (FormatException) {
+		}
+		catch (FormatException) {
 			Console.Clear(); Console.WriteLine("Sorry, PINs are numbers-only. Please try again.");
 			return -1;
 		}
