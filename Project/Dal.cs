@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 
 //Testing for things that connect directly to the database is kinda tough for unit testing, so I excluded it. Hope that's okay.
 
+[ExcludeFromCodeCoverage]
 public class Dal {
 	private const string connectionString = "server=host.docker.internal;port=3333;uid=root;pwd=a;database=midterm";
 
@@ -238,6 +239,7 @@ public interface IDal {
 	bool getAdmin(int accNum);
 }
 
+[ExcludeFromCodeCoverage]
 public class DalWrapper : IDal {
 	public double getAccountBalance(int accountNum) =>
 		Dal.getAccountBalance(accountNum);

@@ -8,7 +8,7 @@ using System.ComponentModel;
 using AdminManager;
 using System.Diagnostics.CodeAnalysis;
 
-
+[ExcludeFromCodeCoverage]
 public class Atm {
 
 	[ExcludeFromCodeCoverage]
