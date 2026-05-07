@@ -1,6 +1,7 @@
 namespace AdminManager;
 
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using dal;
 
@@ -25,6 +26,7 @@ public class adminManager {
 	///<summary>
 	///Prompts the user for data to create a new account, then runs createNewAccount to execute.
 	///</summary>
+	[ExcludeFromCodeCoverage]
 	public void createNewAccountWrapper() {
 		Console.Clear();
 
@@ -71,6 +73,7 @@ public class adminManager {
 	///<summary>
 	///Prompts the user for an account's ID to delete, then runs deleteAccount to execute.
 	///</summary>
+	[ExcludeFromCodeCoverage]
 	public void deleteAccountWrapper() {
 		Console.Clear();
 		Console.Write("Enter the account number to which you want to delete:");
@@ -120,6 +123,7 @@ public class adminManager {
 	/// <summary>
 	/// Prompts the user for an account number and then for an attribute to change about the account.
 	/// </summary>
+	[ExcludeFromCodeCoverage]
 	public void updateAccount() {
 		Console.Clear();
 		Console.Write("Enter the Account Number:");
@@ -394,6 +398,7 @@ public class adminManager {
 	/// <summary>
 	/// Shows and prompts the UI menu for the admin manager.
 	/// </summary>
+	[ExcludeFromCodeCoverage]
 	public void menu() {
 		string? val = "";
 		while (val != "6") {

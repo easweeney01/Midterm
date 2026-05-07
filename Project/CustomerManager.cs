@@ -1,4 +1,5 @@
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using dal;
 namespace CustomerManager;
@@ -43,6 +44,7 @@ public class customerManager {
 	/// <summary>
 	/// Prompts the customer for an amount of money to withdraw and calls withdraw to execute.
 	/// </summary>
+	[ExcludeFromCodeCoverage]
 	public void withdrawWrap() {
 		bool success = false;
 
@@ -85,6 +87,7 @@ public class customerManager {
 	/// <summary>
 	/// Prompts the customer for an amount of money to deposit and calls deposit to execute.
 	/// </summary>
+	[ExcludeFromCodeCoverage]
 	public void depositWrap() {
 		bool success = false;
 
@@ -132,6 +135,7 @@ public class customerManager {
 	/// <summary>
 	/// Shows and prompts the UI menu for the customer manager.
 	/// </summary>
+	[ExcludeFromCodeCoverage]
 	public void menu() {
 		string? val = "";
 		while (val != "5") {
