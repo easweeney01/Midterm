@@ -16,7 +16,8 @@ public class Atm {
 
 		Console.Clear();
 		while (user == -1) {
-			user = LoginManager.getLogin();
+			LoginManager lm = new LoginManager();
+			user = lm.getLogin();
 		}
 
 		isAdmin = Dal.getAdmin(user);
