@@ -7,7 +7,8 @@ using System.Data;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
-[ExcludeFromCodeCoverage]
+//Testing for things that connect directly to the database is kinda tough for unit testing, so I excluded it. Hope that's okay.
+
 public class Dal {
 	private const string connectionString = "server=host.docker.internal;port=3333;uid=root;pwd=a;database=midterm";
 
@@ -16,6 +17,7 @@ public class Dal {
 	/// </summary>
 	/// <param name="accountNum"></param>
 	/// <returns>Returns account balance.</returns>
+	[ExcludeFromCodeCoverage]
 	public static double getAccountBalance(int accountNum) {
 		var dt = new DataTable();
 
@@ -41,6 +43,7 @@ public class Dal {
 	/// <param name="accountNum"></param>
 	/// <param name="balance"></param>
 	/// <returns>1 for success; 0 for failure.</returns>
+	[ExcludeFromCodeCoverage]
 	public static int updateAccountBalance(int accountNum, double balance) {
 		using (var connection = new MySqlConnection(connectionString)) {
 			connection.Open();
@@ -67,6 +70,7 @@ public class Dal {
 	/// <param name="balance"></param>
 	/// <param name="isActive"></param>
 	/// <returns>The ID of the new account.</returns>
+	[ExcludeFromCodeCoverage]
 	public static int createAccount(string holder, string login, int pin, double balance, bool isActive) {
 		var dt = new DataTable();
 		using (var connection = new MySqlConnection(connectionString)) {
@@ -93,6 +97,7 @@ public class Dal {
 	/// </summary>
 	/// <param name="accountNum"></param>
 	/// <returns>1 for success, 0 for failure.</returns>
+	[ExcludeFromCodeCoverage]
 	public static int deleteAccount(int accountNum) {
 		using (var connection = new MySqlConnection(connectionString)) {
 			connection.Open();
@@ -117,6 +122,7 @@ public class Dal {
 	/// <param name="pin"></param>
 	/// <param name="isActive"></param>
 	/// <returns></returns>
+	[ExcludeFromCodeCoverage]
 	public static int updateAccount(int accountNum, string holder, string login, int pin, bool isActive) {
 		using (var connection = new MySqlConnection(connectionString)) {
 			connection.Open();
@@ -142,6 +148,7 @@ public class Dal {
 	/// </summary>
 	/// <param name="accountNum"></param>
 	/// <returns>A datatable with the matching row of account information.</returns>
+	[ExcludeFromCodeCoverage]
 	public static DataTable searchID(int accountNum) {
 		var dt = new DataTable();
 
@@ -170,6 +177,7 @@ public class Dal {
 	/// <param name="login"></param>
 	/// <param name="pin"></param>
 	/// <returns>The account number, or -1 if not found.</returns>
+	[ExcludeFromCodeCoverage]
 	public static int? login(string login, int pin) {
 		var dt = new DataTable();
 
@@ -195,6 +203,7 @@ public class Dal {
 	/// </summary>
 	/// <param name="accNum"></param>
 	/// <returns>A boolean denoting whether or not the account is an admin.</returns>
+	[ExcludeFromCodeCoverage]
 	public static bool getAdmin(int accNum) {
 		var dt = new DataTable();
 

@@ -8,9 +8,10 @@ using System.ComponentModel;
 using AdminManager;
 using System.Diagnostics.CodeAnalysis;
 
-[ExcludeFromCodeCoverage]
+
 public class Atm {
 
+	[ExcludeFromCodeCoverage]
 	public static void Main(string[] args) {
 		int user = -1;
 		bool isAdmin = false;
