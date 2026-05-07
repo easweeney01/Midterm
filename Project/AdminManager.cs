@@ -184,6 +184,7 @@ public class adminManager {
 	/// <summary>
 	///	Prompts the user to enter an account id number, then calls searchForAccount to get the information about the account.
 	/// </summary>
+	[ExcludeFromCodeCoverage]
 	public void searchWrapper() {
 		Console.Clear();
 		bool done = false;
@@ -269,6 +270,7 @@ public class adminManager {
 	/// <param name="login"></param>
 	/// <param name="pin"></param>
 	/// <param name="status"></param>
+	[ExcludeFromCodeCoverage]
 	public void updateHolderWrapper(int id, string holder, string login, int pin, bool status) {
 		bool done = false;
 
@@ -306,6 +308,7 @@ public class adminManager {
 	/// <param name="login"></param>
 	/// <param name="pin"></param>
 	/// <param name="status"></param>
+	[ExcludeFromCodeCoverage]
 	public void updateLoginWrapper(int id, string holder, string login, int pin, bool status) {
 		bool done = false;
 
@@ -341,6 +344,7 @@ public class adminManager {
 	/// <param name="login"></param>
 	/// <param name="pin"></param>
 	/// <param name="status"></param>
+	[ExcludeFromCodeCoverage]
 	public void updatePinWrapper(int id, string holder, string login, int pin, bool status) {
 		bool done = false;
 
@@ -361,6 +365,7 @@ public class adminManager {
 	/// <param name="status">Existing activity status</param>
 	/// <param name="newStatus">The new status, represented by 'y' for active and 'n' for disabled.</param>
 	/// <returns>A boolean to denote success.</returns>
+	[ExcludeFromCodeCoverage]
 	public bool updateStatus(int id, string holder, string login, int pin, bool status, string newStatus) {
 		if (newStatus == null) {
 			Console.WriteLine("Invalid input, please try again."); return false;
@@ -385,6 +390,7 @@ public class adminManager {
 	/// <param name="login"></param>
 	/// <param name="pin"></param>
 	/// <param name="status"></param>
+	[ExcludeFromCodeCoverage]
 	public void updateStatusWrapper(int id, string holder, string login, int pin, bool status) {
 		bool done = false;
 

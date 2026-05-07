@@ -8,11 +8,13 @@ using dal;
 public class LoginManager {
 	private readonly IDal _dal;
 
+	[ExcludeFromCodeCoverage]
 	public LoginManager(IDal dal) {
 		//Use dal to get other info
 		_dal = dal;
 	}
 
+	[ExcludeFromCodeCoverage]
 	public LoginManager() {
 		_dal = new DalWrapper();
 	}
